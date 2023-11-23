@@ -1,4 +1,3 @@
-import GUI
 from PyQt5 import QtWidgets, uic
 
 app = QtWidgets.QApplication([])
