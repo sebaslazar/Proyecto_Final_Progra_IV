@@ -126,6 +126,8 @@ class Ui_MainWindow(object):
         self.Instruction.setGeometry(QtCore.QRect(0, 40, 411, 71))
         self.Instruction.setObjectName("Instruction")
         MainWindow.setCentralWidget(self.Background)
+        
+        self.Confirm.clicked.connect(self.confirm_button)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -138,6 +140,9 @@ class Ui_MainWindow(object):
         self.Cancel.setText(_translate("MainWindow", "Cancelar"))
         self.Confirm.setText(_translate("MainWindow", "Confirmar"))
         self.Instruction.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese la información del cliente</span></p><p align=\"center\"><span style=\" font-size:15pt;\">(Cédula sin puntos, comas ni guiones)</span></p></body></html>"))
+        
+    def confirm_button(self):
+        print("funciona")
 
 
 if __name__ == "__main__":

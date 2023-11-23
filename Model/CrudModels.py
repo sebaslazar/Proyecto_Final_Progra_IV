@@ -1,45 +1,23 @@
-from Model.Cliente import Cliente
-from Model.Factura import Factura
-from Model.ControlFertilizantes import ControlFertilizantes
-from Model.ControlPlagas import ControlPlagas
-from Model.Antibioticos import Antibioticos
 
+class CrudModels:
+    __clients = []
+    __products = []
+    antibiotics = []
+    fertilizers = []
+    pests = []
+    
+    @property
+    def clients(self):
+        return CrudModels.__clients
 
-def create_product_antibiotic(**kwargs):
-    return Antibioticos(**kwargs)
-
-
-def create_product_fertilizer(**kwargs):
-    return ControlFertilizantes(**kwargs)
-
-
-def create_product_pests(**kwargs):
-    return ControlPlagas(**kwargs)
-
-
-def create_client(**kwargs):
-    return Cliente(**kwargs)
-
-
-def create_bill():
-    return Factura()
-
-
-def append_product_bill(product: ControlPlagas | ControlFertilizantes | Antibioticos, bill: Factura):
-    bill.objects = product
-
-
-def append_bill_client(client: Cliente, bill: Factura):
-    client.bills = bill
-
-
-def append_client_list(client: Cliente, client_list: list):
-    client_list.append(client)
-
-
-def client_exists(dni: str, clients: list[Cliente]):
-    for client in clients:
-        if dni == client.dni:
-            return client
-
-    return False
+    @clients.setter
+    def clients(self, new_client):
+        return CrudModels.clients.append(new_client)
+    
+    @property
+    def products(self):
+        return CrudModels.__products
+    
+    @products.setter
+    def products(self, new_product):
+        return CrudModels.products.append(new_product)

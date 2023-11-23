@@ -4,11 +4,12 @@ from PyQt5 import QtWidgets, uic
 app = QtWidgets.QApplication([])
 
 # Carga GUIs
-os.chdir("C:/Users/sebas/PycharmProjects/Proyecto_Final_Progra_IV/GUI/")
-main_menu = uic.loadUi(os.path.abspath("menu_principal.ui"))
-add_client = uic.loadUi(os.path.abspath("agregar_cliente.ui"))
-add_product_menu = uic.loadUi(os.path.abspath("agregar_producto.ui"))
-search_client = uic.loadUi(os.path.abspath("buscar_cliente.ui"))
+# os.chdir("C:/Users/sebas/PycharmProjects/Proyecto_Final_Progra_IV/GUI/")
+gui_paths = "GUI"
+main_menu = uic.loadUi(os.path.abspath(os.path.join(gui_paths, "menu_principal.ui")))
+add_client = uic.loadUi(os.path.abspath(os.path.join(gui_paths, "agregar_cliente.ui")))
+add_product_menu = uic.loadUi(os.path.abspath(os.path.join(gui_paths, "agregar_producto.ui")))
+search_client = uic.loadUi(os.path.abspath(os.path.join(gui_paths, "buscar_cliente.ui")))
 
 
 # Cambio de pantalla

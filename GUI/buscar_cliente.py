@@ -115,6 +115,8 @@ class Ui_MainWindow(object):
         self.Introduction.setGeometry(QtCore.QRect(0, 40, 411, 101))
         self.Introduction.setObjectName("Introduction")
         MainWindow.setCentralWidget(self.Background)
+        
+        self.Search.clicked.connect(self.search)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -127,6 +129,8 @@ class Ui_MainWindow(object):
         self.Search.setText(_translate("MainWindow", "Buscar"))
         self.Introduction.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese la cédula que desea buscar en </span></p><p align=\"center\"><span style=\" font-size:15pt;\">el sistema, sin puntos, comas o guiones.</span></p></body></html>"))
 
+    def search(self):
+        print("funciona")
 
 if __name__ == "__main__":
     import sys
