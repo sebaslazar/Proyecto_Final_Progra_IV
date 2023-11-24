@@ -1,13 +1,12 @@
-from ICrud import ICrud
-from Model import Cliente, CrudModels
+from Model import Cliente as cliente, CrudModels, ICrud
 
-class ImpInterfaceClient(ICrud):
+class ImpInterfaceCliente(ICrud.ICrud):
     
-    def create(self, **kwargs):
-        new_client = Cliente.Cliente(**kwargs)
+    def create(**kwargs):
+        new_client = cliente.Cliente(**kwargs)
         CrudModels.CrudModels.clients = new_client
         
-    def search(self, **kwargs):
+    def search(**kwargs):
         for client in CrudModels.CrudModels.clients:
             print(vars(client))
             if vars(client) == kwargs:
@@ -15,5 +14,5 @@ class ImpInterfaceClient(ICrud):
             
         return False
     
-    def data(self):            
+    def data(**kwargs):            
         ...

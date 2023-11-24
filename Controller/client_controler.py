@@ -1,7 +1,7 @@
-from ICrud.ImpInterfaceCliente import ImpInterfaceCliente
+from ICrud.imp_inter_cliente import ImpInterfaceCliente
 
 
-class ClientControler:
+class ClientControler():
     
     @staticmethod
     def create(**kwargs):
@@ -12,5 +12,5 @@ class ClientControler:
         return ImpInterfaceCliente.search(**kwargs)    
         
     @staticmethod
-    def data(self):
+    def data(**kwargs):
         ...

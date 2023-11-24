@@ -9,6 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from . import agregar_cliente
+# import agregar_cliente
 
 
 class Ui_MainWindow(object):
@@ -111,6 +113,8 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.add_product)
         self.verticalLayout_2.addWidget(self.frame, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         MainWindow.setCentralWidget(self.centralwidget)
+        
+        self.buy.clicked.connect(self.buy_action)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -125,7 +129,20 @@ class Ui_MainWindow(object):
         self.search_id.setText(_translate("MainWindow", "Buscar Cliente"))
         self.add_product.setToolTip(_translate("MainWindow", "<html><head/><body><p>Añade un producto a la base de datos</p></body></html>"))
         self.add_product.setText(_translate("MainWindow", "Agregar Producto"))
+        
+    def buy_action(self):
+        agregar_cliente.show_window()
 
+#Para mostrar la pantalla, lastimosamente no funciona
+def show_window():
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    return MainWindow
+    # MainWindow.show()
+    # sys.exit(app.exec_())
 
 if __name__ == "__main__":
     import sys

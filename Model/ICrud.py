@@ -3,15 +3,15 @@ from abc import ABC, abstractmethod
 class ICrud(ABC):
     
     @abstractmethod
-    def create(self, **kwargs):
+    def create(**kwargs):
         raise NotImplementedError
 
     @abstractmethod
-    def search(self, **kwargs):
+    def search(**kwargs):
         raise NotImplementedError
         
     @abstractmethod
-    def data(self):
+    def data(**kwargs):
         raise NotImplementedError
         
         
