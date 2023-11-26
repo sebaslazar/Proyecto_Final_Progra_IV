@@ -12,13 +12,19 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Client_Found(object):
-    def setupUi(self, Client_Found):
+
+    def back_main_menu(self, Client_Found, Search_Client, Main_Menu):
+        Main_Menu.show()
+        Search_Client.close()
+        Client_Found.close()
+
+    def setupUi(self, Client_Found, Search_Client, Main_Menu):
         Client_Found.setObjectName("Client_Found")
         Client_Found.resize(800, 600)
         self.Background = QtWidgets.QWidget(Client_Found)
         self.Background.setStyleSheet("QWidget{\n"
-"    background-color: rgb(236, 236, 236)\n"
-"}")
+                                      "    background-color: rgb(236, 236, 236)\n"
+                                      "}")
         self.Background.setObjectName("Background")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.Background)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -26,99 +32,99 @@ class Ui_Client_Found(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(self.Background)
         self.frame.setStyleSheet("QLineEdit{\n"
-"    font-size: 20px;\n"
-"    background-color: white\n"
-"}\n"
-"\n"
-"QLabel{\n"
-"    font-size: 20px;\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"    font-size: 20px;\n"
-"    border: 2px solid black;\n"
-"    border-radius: 10px;\n"
-"    padding: 10px\n"
-"}\n"
-"\n"
-"#Antibiotics{\n"
-"    background: rgb(255, 170, 0);\n"
-"}\n"
-"\n"
-"#Antibiotics::Hover{\n"
-"    background-color: rgb(250, 198, 95);\n"
-"}\n"
-"\n"
-"#Antibiotics::Pressed{\n"
-"    background-color: rgb(102, 71, 9);\n"
-"    color: white\n"
-"}\n"
-"\n"
-"#Fertilizers{\n"
-"    background-color: rgb(0, 170, 255)\n"
-"}\n"
-"\n"
-"#Fertilizers::Hover{\n"
-"    background-color: rgb(188, 250, 255)\n"
-"}\n"
-"\n"
-"#Fertilizers::Pressed{\n"
-"    background-color: rgb(0, 0, 108);\n"
-"    color: white\n"
-"}\n"
-"\n"
-"#Pest_Control{\n"
-"    background: rgb(0, 170, 0);\n"
-"}\n"
-"\n"
-"#Pest_Control::Hover{\n"
-"    background-color: rgb(133, 222, 133);\n"
-"}\n"
-"\n"
-"#Pest_Control::Pressed{\n"
-"    background-color: rgb(0, 77, 0);\n"
-"    color: white\n"
-"}\n"
-"\n"
-"QComboBox{\n"
-"    background-color: white;\n"
-"    font-size: 20px\n"
-"}\n"
-"\n"
-"#Quit_Button{\n"
-"    background-color: rgb(255, 0, 0);\n"
-"    color: black;\n"
-"}\n"
-"\n"
-"#Quit_Button::Hover{\n"
-"    background-color: rgb(232, 142, 142);\n"
-"    color: black;\n"
-"}\n"
-"\n"
-"#Quit_Button::Pressed{\n"
-"    background-color: rgb(150, 0, 0);\n"
-"    color: white;\n"
-"}\n"
-"\n"
-"\n"
-"QHeaderView::section{\n"
-"    width: 20px;\n"
-"    border: 2px solid black;\n"
-"    background-color: white;\n"
-"}\n"
-"\n"
-"QTableView{\n"
-"    gridline-color: black;\n"
-"}\n"
-"\n"
-"QTableView::item{\n"
-"    background-color: white;\n"
-"    border: 1px solid black\n"
-"}\n"
-"\n"
-"QTableView::item:selected{\n"
-"    background-color: rgb(94, 110, 255)\n"
-"}")
+                                 "    font-size: 20px;\n"
+                                 "    background-color: white\n"
+                                 "}\n"
+                                 "\n"
+                                 "QLabel{\n"
+                                 "    font-size: 20px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton{\n"
+                                 "    font-size: 20px;\n"
+                                 "    border: 2px solid black;\n"
+                                 "    border-radius: 10px;\n"
+                                 "    padding: 10px\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Antibiotics{\n"
+                                 "    background: rgb(255, 170, 0);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Antibiotics::Hover{\n"
+                                 "    background-color: rgb(250, 198, 95);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Antibiotics::Pressed{\n"
+                                 "    background-color: rgb(102, 71, 9);\n"
+                                 "    color: white\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Fertilizers{\n"
+                                 "    background-color: rgb(0, 170, 255)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Fertilizers::Hover{\n"
+                                 "    background-color: rgb(188, 250, 255)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Fertilizers::Pressed{\n"
+                                 "    background-color: rgb(0, 0, 108);\n"
+                                 "    color: white\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Pest_Control{\n"
+                                 "    background: rgb(0, 170, 0);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Pest_Control::Hover{\n"
+                                 "    background-color: rgb(133, 222, 133);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Pest_Control::Pressed{\n"
+                                 "    background-color: rgb(0, 77, 0);\n"
+                                 "    color: white\n"
+                                 "}\n"
+                                 "\n"
+                                 "QComboBox{\n"
+                                 "    background-color: white;\n"
+                                 "    font-size: 20px\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Quit_Button{\n"
+                                 "    background-color: rgb(255, 0, 0);\n"
+                                 "    color: black;\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Quit_Button::Hover{\n"
+                                 "    background-color: rgb(232, 142, 142);\n"
+                                 "    color: black;\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Quit_Button::Pressed{\n"
+                                 "    background-color: rgb(150, 0, 0);\n"
+                                 "    color: white;\n"
+                                 "}\n"
+                                 "\n"
+                                 "\n"
+                                 "QHeaderView::section{\n"
+                                 "    width: 20px;\n"
+                                 "    border: 2px solid black;\n"
+                                 "    background-color: white;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QTableView{\n"
+                                 "    gridline-color: black;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QTableView::item{\n"
+                                 "    background-color: white;\n"
+                                 "    border: 1px solid black\n"
+                                 "}\n"
+                                 "\n"
+                                 "QTableView::item:selected{\n"
+                                 "    background-color: rgb(94, 110, 255)\n"
+                                 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -166,7 +172,7 @@ class Ui_Client_Found(object):
         self.Total_Value = QtWidgets.QLabel(self.frame_3)
         self.Total_Value.setObjectName("Total_Value")
         self.horizontalLayout_2.addWidget(self.Total_Value)
-        self.Quit_Button = QtWidgets.QPushButton(self.frame_3)
+        self.Quit_Button = QtWidgets.QPushButton(self.frame_3, clicked=lambda: self.back_main_menu(Client_Found, Search_Client, Main_Menu))
         font = QtGui.QFont()
         font.setPointSize(-1)
         self.Quit_Button.setFont(font)
@@ -290,16 +296,18 @@ class Ui_Client_Found(object):
         Client_Found.setCentralWidget(self.Background)
 
         self.retranslateUi(Client_Found)
-        self.Antibiotics.clicked.connect(self.Table_Antibiotics.show) # type: ignore
-        self.Fertilizers.clicked.connect(self.Table_Antibiotics.hide) # type: ignore
-        self.Pest_Control.clicked.connect(self.Table_Antibiotics.hide) # type: ignore
-        self.Antibiotics.clicked.connect(self.Table_Fertilizers.hide) # type: ignore
-        self.Fertilizers.clicked.connect(self.Table_Fertilizers.show) # type: ignore
-        self.Pest_Control.clicked.connect(self.Table_Fertilizers.hide) # type: ignore
-        self.Antibiotics.clicked.connect(self.Table_Fertilizers_2.hide) # type: ignore
-        self.Fertilizers.clicked.connect(self.Table_Fertilizers_2.hide) # type: ignore
-        self.Pest_Control.clicked.connect(self.Table_Fertilizers_2.show) # type: ignore
+        self.Antibiotics.clicked.connect(self.Table_Antibiotics.show)  # type: ignore
+        self.Fertilizers.clicked.connect(self.Table_Antibiotics.hide)  # type: ignore
+        self.Pest_Control.clicked.connect(self.Table_Antibiotics.hide)  # type: ignore
+        self.Antibiotics.clicked.connect(self.Table_Fertilizers.hide)  # type: ignore
+        self.Fertilizers.clicked.connect(self.Table_Fertilizers.show)  # type: ignore
+        self.Pest_Control.clicked.connect(self.Table_Fertilizers.hide)  # type: ignore
+        self.Antibiotics.clicked.connect(self.Table_Fertilizers_2.hide)  # type: ignore
+        self.Fertilizers.clicked.connect(self.Table_Fertilizers_2.hide)  # type: ignore
+        self.Pest_Control.clicked.connect(self.Table_Fertilizers_2.show)  # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Client_Found)
+
+        Search_Client.hide()
 
     def retranslateUi(self, Client_Found):
         _translate = QtCore.QCoreApplication.translate
@@ -344,6 +352,7 @@ class Ui_Client_Found(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Client_Found = QtWidgets.QMainWindow()
     ui = Ui_Client_Found()

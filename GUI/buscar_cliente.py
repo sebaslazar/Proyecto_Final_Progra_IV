@@ -9,10 +9,17 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from cliente_encontrado import Ui_Client_Found
 
 
 class Ui_Search_Client(object):
-    def setupUi(self, Search_Client):
+
+    def back_main_menu_window(self, Search_Client, Main_Menu):
+        Main_Menu.show()
+        Search_Client.close()
+
+
+    def setupUi(self, Search_Client, Main_Menu):
         Search_Client.setObjectName("Search_Client")
         Search_Client.resize(799, 600)
         self.Background = QtWidgets.QWidget(Search_Client)
@@ -101,13 +108,13 @@ class Ui_Search_Client(object):
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.Cancel = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.Cancel = QtWidgets.QPushButton(self.horizontalLayoutWidget, clicked=lambda: self.back_main_menu_window(Search_Client, Main_Menu))
         self.Cancel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Cancel.setObjectName("Cancel")
         self.horizontalLayout_3.addWidget(self.Cancel)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem)
-        self.Search = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.Search = QtWidgets.QPushButton(self.horizontalLayoutWidget, clicked=lambda: self.open_cliend_found_window(Search_Client, Main_Menu))
         self.Search.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Search.setObjectName("Search")
         self.horizontalLayout_3.addWidget(self.Search)
@@ -115,6 +122,8 @@ class Ui_Search_Client(object):
         self.Introduction.setGeometry(QtCore.QRect(0, 40, 411, 101))
         self.Introduction.setObjectName("Introduction")
         Search_Client.setCentralWidget(self.Background)
+
+        Main_Menu.hide()
 
         self.retranslateUi(Search_Client)
         QtCore.QMetaObject.connectSlotsByName(Search_Client)
@@ -126,7 +135,16 @@ class Ui_Search_Client(object):
         self.Cancel.setText(_translate("Search_Client", "Cancelar"))
         self.Search.setText(_translate("Search_Client", "Buscar"))
         self.Introduction.setText(_translate("Search_Client",
-                                             "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese la cédula que desea buscar en </span></p><p align=\"center\"><span style=\" font-size:15pt;\">el sistema, sin puntos, comas o guiones.</span></p></body></html>"))
+                                             "<html><head/><body><p align=\"center\"><span style=\" "
+                                             "font-size:15pt;\">Ingrese la cédula que desea buscar en </span></p><p "
+                                             "align=\"center\"><span style=\" font-size:15pt;\">el sistema, "
+                                             "sin puntos, comas o guiones.</span></p></body></html>"))
+
+    def open_cliend_found_window(self, Search_Client, Main_Menu):
+        self.ventana = QtWidgets.QMainWindow()
+        self.ui = Ui_Client_Found()
+        self.ui.setupUi(self.ventana, Search_Client, Main_Menu)
+        self.ventana.show()
 
 
 if __name__ == "__main__":

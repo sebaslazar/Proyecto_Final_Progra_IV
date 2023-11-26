@@ -148,7 +148,7 @@ class Ui_Main_Menu(object):
     def open_search_client_window(self):
         self.ventana = QtWidgets.QMainWindow()
         self.ui = Ui_Search_Client()
-        self.ui.setupUi(self.ventana)
+        self.ui.setupUi(self.ventana, Main_Menu)
         self.ventana.show()
 
     def open_add_product_window(self):

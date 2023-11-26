@@ -17,9 +17,9 @@ class Ui_Add_Client(object):
         self.ui = None
         self.ventana = None
 
-    def back_main_menu_window(self, current_window, main_menu_window):
+    def back_main_menu_window(self, Add_Client, main_menu_window):
         main_menu_window.show()
-        current_window.close()
+        Add_Client.close()
 
 
     def setupUi(self, Add_Client, Main_Menu):
