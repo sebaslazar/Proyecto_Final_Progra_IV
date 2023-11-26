@@ -19,6 +19,9 @@ class Ui_Main_Menu(object):
         self.ui = None
         self.ventana = None
 
+    def hide_main_menu_window(self, main_menu_window):
+        main_menu_window.hide()
+
     def setupUi(self, Main_Menu):
         Main_Menu.setObjectName("Main_Menu")
         Main_Menu.resize(800, 600)
@@ -69,7 +72,7 @@ class Ui_Main_Menu(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.frame)
         self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.buy = QtWidgets.QPushButton(self.frame)
+        self.buy = QtWidgets.QPushButton(self.frame, clicked=lambda: self.hide_main_menu_window(Main_Menu))
         self.buy.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -86,7 +89,7 @@ class Ui_Main_Menu(object):
         self.verticalLayout.addWidget(self.buy)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
-        self.search_id = QtWidgets.QPushButton(self.frame)
+        self.search_id = QtWidgets.QPushButton(self.frame, clicked=lambda: self.hide_main_menu_window(Main_Menu))
         font = QtGui.QFont()
         font.setPointSize(28)
         self.search_id.setFont(font)
@@ -95,7 +98,7 @@ class Ui_Main_Menu(object):
         self.verticalLayout.addWidget(self.search_id)
         spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem1)
-        self.add_product = QtWidgets.QPushButton(self.frame)
+        self.add_product = QtWidgets.QPushButton(self.frame, clicked=lambda: self.hide_main_menu_window(Main_Menu))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -142,23 +145,20 @@ class Ui_Main_Menu(object):
     def open_add_client_window(self):
         self.ventana = QtWidgets.QMainWindow()
         self.ui = Ui_Add_Client()
-        self.ui.setupUi(self.ventana)
+        self.ui.setupUi(self.ventana, Main_Menu)
         self.ventana.show()
-        Main_Menu.hide()
 
     def open_search_client_window(self):
         self.ventana = QtWidgets.QMainWindow()
         self.ui = Ui_Search_Client()
         self.ui.setupUi(self.ventana)
         self.ventana.show()
-        Main_Menu.hide()
 
     def open_add_product_window(self):
         self.ventana = QtWidgets.QMainWindow()
         self.ui = Ui_Add_Product()
         self.ui.setupUi(self.ventana)
         self.ventana.show()
-        Main_Menu.hide()
 
 
 if __name__ == "__main__":

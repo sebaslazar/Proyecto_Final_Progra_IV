@@ -9,10 +9,10 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from menu_principal import Ui_Main_Menu
 
 
 class Ui_Add_Product(object):
+
     def setupUi(self, Add_Product):
         Add_Product.setObjectName("Add_Product")
         Add_Product.resize(645, 694)
@@ -191,7 +191,10 @@ class Ui_Add_Product(object):
         _translate = QtCore.QCoreApplication.translate
         Add_Product.setWindowTitle(_translate("Add_Product", "Administrador de Vivero"))
         self.Introduction.setText(_translate("Add_Product",
-                                             "<html><head/><body><p align=\"center\"><span style=\" font-size:22pt;\">Indique el tipo de producto que </span></p><p align=\"center\"><span style=\" font-size:22pt;\">desea agregar al sistema</span></p></body></html>"))
+                                             "<html><head/><body><p align=\"center\"><span style=\" "
+                                             "font-size:22pt;\">Indique el tipo de producto que </span></p><p "
+                                             "align=\"center\"><span style=\" font-size:22pt;\">desea agregar al "
+                                             "sistema</span></p></body></html>"))
         self.Antibiotics.setText(_translate("Add_Product", "ANTIBIÓTICO"))
         self.Fertilizers.setText(_translate("Add_Product", "FERTILIZANTE"))
         self.Pest_Control.setText(_translate("Add_Product", "CONTROL DE PLAGAS"))

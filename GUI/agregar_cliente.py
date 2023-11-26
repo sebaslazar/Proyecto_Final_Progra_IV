@@ -9,10 +9,20 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from comprar_producto import Ui_Purchase_Product
 
 
 class Ui_Add_Client(object):
-    def setupUi(self, Add_Client):
+    def __init__(self):
+        self.ui = None
+        self.ventana = None
+
+    def back_main_menu_window(self, current_window, main_menu_window):
+        current_window.hide()
+        main_menu_window.show()
+
+
+    def setupUi(self, Add_Client, Main_Menu):
         Add_Client.setObjectName("Add_Client")
         Add_Client.resize(799, 600)
         self.Background = QtWidgets.QWidget(Add_Client)
@@ -112,7 +122,7 @@ class Ui_Add_Client(object):
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.Cancel = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.Cancel = QtWidgets.QPushButton(self.horizontalLayoutWidget, clicked=lambda: self.back_main_menu_window(Add_Client, Main_Menu))
         self.Cancel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Cancel.setObjectName("Cancel")
         self.horizontalLayout_3.addWidget(self.Cancel)
@@ -127,6 +137,8 @@ class Ui_Add_Client(object):
         self.Instruction.setObjectName("Instruction")
         Add_Client.setCentralWidget(self.Background)
 
+        self.Confirm.clicked.connect(self.open_purchase_product_window)
+
         self.retranslateUi(Add_Client)
         QtCore.QMetaObject.connectSlotsByName(Add_Client)
 
@@ -138,7 +150,16 @@ class Ui_Add_Client(object):
         self.Cancel.setText(_translate("Add_Client", "Cancelar"))
         self.Confirm.setText(_translate("Add_Client", "Confirmar"))
         self.Instruction.setText(_translate("Add_Client",
-                                            "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese la información del cliente</span></p><p align=\"center\"><span style=\" font-size:15pt;\">(Cédula sin puntos, comas ni guiones)</span></p></body></html>"))
+                                            "<html><head/><body><p align=\"center\"><span style=\" "
+                                            "font-size:15pt;\">Ingrese la información del cliente</span></p><p "
+                                            "align=\"center\"><span style=\" font-size:15pt;\">(Cédula sin puntos, "
+                                            "comas ni guiones)</span></p></body></html>"))
+
+    def open_purchase_product_window(self):
+        self.ventana = QtWidgets.QMainWindow()
+        self.ui = Ui_Purchase_Product()
+        self.ui.setupUi(self.ventana)
+        self.ventana.show()
 
 
 if __name__ == "__main__":
