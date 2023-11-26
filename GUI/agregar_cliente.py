@@ -18,8 +18,8 @@ class Ui_Add_Client(object):
         self.ventana = None
 
     def back_main_menu_window(self, current_window, main_menu_window):
-        current_window.hide()
         main_menu_window.show()
+        current_window.close()
 
 
     def setupUi(self, Add_Client, Main_Menu):
@@ -136,6 +136,8 @@ class Ui_Add_Client(object):
         self.Instruction.setGeometry(QtCore.QRect(0, 40, 411, 71))
         self.Instruction.setObjectName("Instruction")
         Add_Client.setCentralWidget(self.Background)
+
+        Main_Menu.hide()
 
         self.retranslateUi(Add_Client)
         QtCore.QMetaObject.connectSlotsByName(Add_Client)

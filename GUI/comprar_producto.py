@@ -14,8 +14,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Purchase_Product(object):
 
     def back_main_menu_window(self, Purchase_Product, Add_Client, Main_Menu):
-        Add_Client.hide()
         Main_Menu.show()
+        Add_Client.close()
         Purchase_Product.close()
 
 
@@ -636,6 +636,8 @@ class Ui_Purchase_Product(object):
         self.Fertilizers.clicked.connect(self.Table_Pest_Control.hide)  # type: ignore
         self.Antibiotics.clicked.connect(self.Table_Pest_Control.hide)  # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Purchase_Product)
+
+        Add_Client.hide()
 
     def retranslateUi(self, Purchase_Product):
         _translate = QtCore.QCoreApplication.translate
