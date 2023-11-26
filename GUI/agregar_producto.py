@@ -11,14 +11,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(645, 694)
-        MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        MainWindow.setStatusTip("")
-        MainWindow.setAutoFillBackground(False)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_Add_Product(object):
+    def setupUi(self, Add_Product):
+        Add_Product.setObjectName("Add_Product")
+        Add_Product.resize(645, 694)
+        Add_Product.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        Add_Product.setStatusTip("")
+        Add_Product.setAutoFillBackground(False)
+        self.centralwidget = QtWidgets.QWidget(Add_Product)
         self.centralwidget.setStyleSheet("QWidget{\n"
 "    background-color: rgb(236, 236, 236)\n"
 "}")
@@ -181,26 +181,26 @@ class Ui_MainWindow(object):
         self.Back_Button.setObjectName("Back_Button")
         self.verticalLayout.addWidget(self.Back_Button)
         self.verticalLayout_2.addWidget(self.frame, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-        MainWindow.setCentralWidget(self.centralwidget)
+        Add_Product.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Add_Product)
+        QtCore.QMetaObject.connectSlotsByName(Add_Product)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Add_Product):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Administrador de Vivero"))
-        self.Introduction.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:22pt;\">Indique el tipo de producto que </span></p><p align=\"center\"><span style=\" font-size:22pt;\">desea agregar al sistema</span></p></body></html>"))
-        self.Antibiotics.setText(_translate("MainWindow", "ANTIBIÓTICO"))
-        self.Fertilizers.setText(_translate("MainWindow", "FERTILIZANTE"))
-        self.Pest_Control.setText(_translate("MainWindow", "CONTROL DE PLAGAS"))
-        self.Back_Button.setText(_translate("MainWindow", "RETROCEDER"))
+        Add_Product.setWindowTitle(_translate("Add_Product", "Administrador de Vivero"))
+        self.Introduction.setText(_translate("Add_Product", "<html><head/><body><p align=\"center\"><span style=\" font-size:22pt;\">Indique el tipo de producto que </span></p><p align=\"center\"><span style=\" font-size:22pt;\">desea agregar al sistema</span></p></body></html>"))
+        self.Antibiotics.setText(_translate("Add_Product", "ANTIBIÓTICO"))
+        self.Fertilizers.setText(_translate("Add_Product", "FERTILIZANTE"))
+        self.Pest_Control.setText(_translate("Add_Product", "CONTROL DE PLAGAS"))
+        self.Back_Button.setText(_translate("Add_Product", "RETROCEDER"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Add_Product = QtWidgets.QMainWindow()
+    ui = Ui_Add_Product()
+    ui.setupUi(Add_Product)
+    Add_Product.show()
     sys.exit(app.exec_())

@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(799, 608)
-        self.Background = QtWidgets.QWidget(MainWindow)
+class Ui_Add_Pest_Control(object):
+    def setupUi(self, Add_Pest_Control):
+        Add_Pest_Control.setObjectName("Add_Pest_Control")
+        Add_Pest_Control.resize(799, 608)
+        self.Background = QtWidgets.QWidget(Add_Pest_Control)
         self.Background.setStyleSheet("QWidget{\n"
 "    background-color: rgb(236, 236, 236)\n"
 "}")
@@ -191,29 +191,29 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         spacerItem8 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem8)
-        MainWindow.setCentralWidget(self.Background)
+        Add_Pest_Control.setCentralWidget(self.Background)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Add_Pest_Control)
+        QtCore.QMetaObject.connectSlotsByName(Add_Pest_Control)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Add_Pest_Control):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Agregar Control de Plagas"))
-        self.Introduction.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese los datos del nuevo control de plagas</span></p></body></html>"))
-        self.Label.setText(_translate("MainWindow", "Nombre"))
-        self.Label_5.setText(_translate("MainWindow", "ICA"))
-        self.Label_4.setText(_translate("MainWindow", "Frecuencia"))
-        self.Label_3.setText(_translate("MainWindow", "Período de Carencia"))
-        self.Label_2.setText(_translate("MainWindow", "Costo"))
-        self.Cancel.setText(_translate("MainWindow", "Cancelar"))
-        self.Add.setText(_translate("MainWindow", "Agregar"))
+        Add_Pest_Control.setWindowTitle(_translate("Add_Pest_Control", "Agregar Control de Plagas"))
+        self.Introduction.setText(_translate("Add_Pest_Control", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese los datos del nuevo control de plagas</span></p></body></html>"))
+        self.Label.setText(_translate("Add_Pest_Control", "Nombre"))
+        self.Label_5.setText(_translate("Add_Pest_Control", "ICA"))
+        self.Label_4.setText(_translate("Add_Pest_Control", "Frecuencia"))
+        self.Label_3.setText(_translate("Add_Pest_Control", "Período de Carencia"))
+        self.Label_2.setText(_translate("Add_Pest_Control", "Costo"))
+        self.Cancel.setText(_translate("Add_Pest_Control", "Cancelar"))
+        self.Add.setText(_translate("Add_Pest_Control", "Agregar"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Add_Pest_Control = QtWidgets.QMainWindow()
+    ui = Ui_Add_Pest_Control()
+    ui.setupUi(Add_Pest_Control)
+    Add_Pest_Control.show()
     sys.exit(app.exec_())

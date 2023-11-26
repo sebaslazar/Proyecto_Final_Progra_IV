@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(799, 608)
-        self.Background = QtWidgets.QWidget(MainWindow)
+class Ui_Add_Antibiotic(object):
+    def setupUi(self, Add_Antibiotic):
+        Add_Antibiotic.setObjectName("Add_Antibiotic")
+        Add_Antibiotic.resize(799, 608)
+        self.Background = QtWidgets.QWidget(Add_Antibiotic)
         self.Background.setStyleSheet("QWidget{\n"
 "    background-color: rgb(236, 236, 236)\n"
 "}")
@@ -171,28 +171,28 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         spacerItem7 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem7)
-        MainWindow.setCentralWidget(self.Background)
+        Add_Antibiotic.setCentralWidget(self.Background)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Add_Antibiotic)
+        QtCore.QMetaObject.connectSlotsByName(Add_Antibiotic)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Add_Antibiotic):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Agregar Antibiótico"))
-        self.Introduction.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese los datos del nuevo antibiótico</span></p></body></html>"))
-        self.Name_4.setText(_translate("MainWindow", "Nombre"))
-        self.Label.setText(_translate("MainWindow", "Dosis"))
-        self.Label_2.setText(_translate("MainWindow", "Tipo de Animal"))
-        self.Label_3.setText(_translate("MainWindow", "Costo"))
-        self.Cancel.setText(_translate("MainWindow", "Cancelar"))
-        self.Add.setText(_translate("MainWindow", "Agregar"))
+        Add_Antibiotic.setWindowTitle(_translate("Add_Antibiotic", "Agregar Antibiótico"))
+        self.Introduction.setText(_translate("Add_Antibiotic", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese los datos del nuevo antibiótico</span></p></body></html>"))
+        self.Name_4.setText(_translate("Add_Antibiotic", "Nombre"))
+        self.Label.setText(_translate("Add_Antibiotic", "Dosis"))
+        self.Label_2.setText(_translate("Add_Antibiotic", "Tipo de Animal"))
+        self.Label_3.setText(_translate("Add_Antibiotic", "Costo"))
+        self.Cancel.setText(_translate("Add_Antibiotic", "Cancelar"))
+        self.Add.setText(_translate("Add_Antibiotic", "Agregar"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Add_Antibiotic = QtWidgets.QMainWindow()
+    ui = Ui_Add_Antibiotic()
+    ui.setupUi(Add_Antibiotic)
+    Add_Antibiotic.show()
     sys.exit(app.exec_())

@@ -9,18 +9,16 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from . import agregar_cliente
-# import agregar_cliente
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
-        MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        MainWindow.setStatusTip("")
-        MainWindow.setAutoFillBackground(False)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_Main_Menu(object):
+    def setupUi(self, Main_Menu):
+        Main_Menu.setObjectName("Main_Menu")
+        Main_Menu.resize(800, 600)
+        Main_Menu.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        Main_Menu.setStatusTip("")
+        Main_Menu.setAutoFillBackground(False)
+        self.centralwidget = QtWidgets.QWidget(Main_Menu)
         self.centralwidget.setStyleSheet("QWidget{\n"
 "    background-color: rgb(236, 236, 236)\n"
 "}")
@@ -112,43 +110,28 @@ class Ui_MainWindow(object):
         self.add_product.setObjectName("add_product")
         self.verticalLayout.addWidget(self.add_product)
         self.verticalLayout_2.addWidget(self.frame, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-        MainWindow.setCentralWidget(self.centralwidget)
-        
-        self.buy.clicked.connect(self.buy_action)
+        Main_Menu.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Main_Menu)
+        QtCore.QMetaObject.connectSlotsByName(Main_Menu)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Main_Menu):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Administrador de Vivero"))
-        self.buy.setToolTip(_translate("MainWindow", "<html><head/><body><p>Navega por nuestro stock</p></body></html>"))
-        self.buy.setWhatsThis(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
-        self.buy.setText(_translate("MainWindow", "Comprar"))
-        self.search_id.setToolTip(_translate("MainWindow", "<html><head/><body><p>Busca a un cliente por su cédula</p></body></html>"))
-        self.search_id.setText(_translate("MainWindow", "Buscar Cliente"))
-        self.add_product.setToolTip(_translate("MainWindow", "<html><head/><body><p>Añade un producto a la base de datos</p></body></html>"))
-        self.add_product.setText(_translate("MainWindow", "Agregar Producto"))
-        
-    def buy_action(self):
-        agregar_cliente.show_window()
+        Main_Menu.setWindowTitle(_translate("Main_Menu", "Administrador de Vivero"))
+        self.buy.setToolTip(_translate("Main_Menu", "<html><head/><body><p>Navega por nuestro stock</p></body></html>"))
+        self.buy.setWhatsThis(_translate("Main_Menu", "<html><head/><body><p><br/></p></body></html>"))
+        self.buy.setText(_translate("Main_Menu", "Comprar"))
+        self.search_id.setToolTip(_translate("Main_Menu", "<html><head/><body><p>Busca a un cliente por su cédula</p></body></html>"))
+        self.search_id.setText(_translate("Main_Menu", "Buscar Cliente"))
+        self.add_product.setToolTip(_translate("Main_Menu", "<html><head/><body><p>Añade un producto a la base de datos</p></body></html>"))
+        self.add_product.setText(_translate("Main_Menu", "Agregar Producto"))
 
-#Para mostrar la pantalla, lastimosamente no funciona
-def show_window():
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    return MainWindow
-    # MainWindow.show()
-    # sys.exit(app.exec_())
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Main_Menu = QtWidgets.QMainWindow()
+    ui = Ui_Main_Menu()
+    ui.setupUi(Main_Menu)
+    Main_Menu.show()
     sys.exit(app.exec_())

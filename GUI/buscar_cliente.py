@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(799, 600)
-        self.Background = QtWidgets.QWidget(MainWindow)
+class Ui_Search_Client(object):
+    def setupUi(self, Search_Client):
+        Search_Client.setObjectName("Search_Client")
+        Search_Client.resize(799, 600)
+        self.Background = QtWidgets.QWidget(Search_Client)
         self.Background.setStyleSheet("QWidget{\n"
 "    background-color: rgb(236, 236, 236)\n"
 "}")
@@ -114,29 +114,25 @@ class Ui_MainWindow(object):
         self.Introduction = QtWidgets.QLabel(self.frame)
         self.Introduction.setGeometry(QtCore.QRect(0, 40, 411, 101))
         self.Introduction.setObjectName("Introduction")
-        MainWindow.setCentralWidget(self.Background)
-        
-        self.Search.clicked.connect(self.search)
+        Search_Client.setCentralWidget(self.Background)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Search_Client)
+        QtCore.QMetaObject.connectSlotsByName(Search_Client)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Search_Client):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Buscar Cliente"))
-        self.Label.setText(_translate("MainWindow", "Cédula"))
-        self.Cancel.setText(_translate("MainWindow", "Cancelar"))
-        self.Search.setText(_translate("MainWindow", "Buscar"))
-        self.Introduction.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese la cédula que desea buscar en </span></p><p align=\"center\"><span style=\" font-size:15pt;\">el sistema, sin puntos, comas o guiones.</span></p></body></html>"))
+        Search_Client.setWindowTitle(_translate("Search_Client", "Buscar Cliente"))
+        self.Label.setText(_translate("Search_Client", "Cédula"))
+        self.Cancel.setText(_translate("Search_Client", "Cancelar"))
+        self.Search.setText(_translate("Search_Client", "Buscar"))
+        self.Introduction.setText(_translate("Search_Client", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese la cédula que desea buscar en </span></p><p align=\"center\"><span style=\" font-size:15pt;\">el sistema, sin puntos, comas o guiones.</span></p></body></html>"))
 
-    def search(self):
-        print("funciona")
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Search_Client = QtWidgets.QMainWindow()
+    ui = Ui_Search_Client()
+    ui.setupUi(Search_Client)
+    Search_Client.show()
     sys.exit(app.exec_())

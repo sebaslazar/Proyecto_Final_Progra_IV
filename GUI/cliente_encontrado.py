@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
-        self.Background = QtWidgets.QWidget(MainWindow)
+class Ui_Client_Found(object):
+    def setupUi(self, Client_Found):
+        Client_Found.setObjectName("Client_Found")
+        Client_Found.resize(800, 600)
+        self.Background = QtWidgets.QWidget(Client_Found)
         self.Background.setStyleSheet("QWidget{\n"
 "    background-color: rgb(236, 236, 236)\n"
 "}")
@@ -123,7 +123,7 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.comboBox = QtWidgets.QComboBox(self.frame)
-        self.comboBox.setGeometry(QtCore.QRect(310, 160, 151, 31))
+        self.comboBox.setGeometry(QtCore.QRect(310, 160, 271, 28))
         self.comboBox.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.comboBox.setEditable(False)
         self.comboBox.setInsertPolicy(QtWidgets.QComboBox.InsertAtCurrent)
@@ -287,9 +287,9 @@ class Ui_MainWindow(object):
         self.Table_Fertilizers_2.verticalHeader().setDefaultSectionSize(30)
         self.Table_Fertilizers_2.verticalHeader().setSortIndicatorShown(False)
         self.verticalLayout.addWidget(self.frame)
-        MainWindow.setCentralWidget(self.Background)
+        Client_Found.setCentralWidget(self.Background)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(Client_Found)
         self.Antibiotics.clicked.connect(self.Table_Antibiotics.show) # type: ignore
         self.Fertilizers.clicked.connect(self.Table_Antibiotics.hide) # type: ignore
         self.Pest_Control.clicked.connect(self.Table_Antibiotics.hide) # type: ignore
@@ -299,54 +299,54 @@ class Ui_MainWindow(object):
         self.Antibiotics.clicked.connect(self.Table_Fertilizers_2.hide) # type: ignore
         self.Fertilizers.clicked.connect(self.Table_Fertilizers_2.hide) # type: ignore
         self.Pest_Control.clicked.connect(self.Table_Fertilizers_2.show) # type: ignore
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(Client_Found)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Client_Found):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Cliente Encontrado"))
-        self.comboBox.setItemText(0, _translate("MainWindow", "FACTURAS"))
-        self.Antibiotics.setText(_translate("MainWindow", "Antibióticos"))
-        self.Fertilizers.setText(_translate("MainWindow", "Fertilizantes"))
-        self.Pest_Control.setText(_translate("MainWindow", "Control de plagas"))
-        self.Total_Value.setText(_translate("MainWindow", "VALOR TOTAL: "))
-        self.Quit_Button.setText(_translate("MainWindow", "SALIR >>"))
-        self.label_2.setText(_translate("MainWindow", "Nombre:"))
-        self.label.setText(_translate("MainWindow", "Cédula:"))
+        Client_Found.setWindowTitle(_translate("Client_Found", "Cliente Encontrado"))
+        self.comboBox.setItemText(0, _translate("Client_Found", "FACTURAS"))
+        self.Antibiotics.setText(_translate("Client_Found", "Antibióticos"))
+        self.Fertilizers.setText(_translate("Client_Found", "Fertilizantes"))
+        self.Pest_Control.setText(_translate("Client_Found", "Control de plagas"))
+        self.Total_Value.setText(_translate("Client_Found", "VALOR TOTAL: "))
+        self.Quit_Button.setText(_translate("Client_Found", "SALIR >>"))
+        self.label_2.setText(_translate("Client_Found", "Nombre:"))
+        self.label.setText(_translate("Client_Found", "Cédula:"))
         item = self.Table_Antibiotics.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "NOMBRE"))
+        item.setText(_translate("Client_Found", "NOMBRE"))
         item = self.Table_Antibiotics.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "DOSIS"))
+        item.setText(_translate("Client_Found", "DOSIS"))
         item = self.Table_Antibiotics.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "TIPO"))
+        item.setText(_translate("Client_Found", "TIPO"))
         item = self.Table_Antibiotics.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "COSTO"))
+        item.setText(_translate("Client_Found", "COSTO"))
         item = self.Table_Fertilizers.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "NOMBRE"))
+        item.setText(_translate("Client_Found", "NOMBRE"))
         item = self.Table_Fertilizers.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "ICA"))
+        item.setText(_translate("Client_Found", "ICA"))
         item = self.Table_Fertilizers.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "FRECUENCIA"))
+        item.setText(_translate("Client_Found", "FRECUENCIA"))
         item = self.Table_Fertilizers.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "ÚLTIMA APLICACIÓN"))
+        item.setText(_translate("Client_Found", "ÚLTIMA APLICACIÓN"))
         item = self.Table_Fertilizers.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "COSTO"))
+        item.setText(_translate("Client_Found", "COSTO"))
         item = self.Table_Fertilizers_2.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "NOMBRE"))
+        item.setText(_translate("Client_Found", "NOMBRE"))
         item = self.Table_Fertilizers_2.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "ICA"))
+        item.setText(_translate("Client_Found", "ICA"))
         item = self.Table_Fertilizers_2.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "FRECUENCIA"))
+        item.setText(_translate("Client_Found", "FRECUENCIA"))
         item = self.Table_Fertilizers_2.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "PERÍODO DE CARENCIA"))
+        item.setText(_translate("Client_Found", "PERÍODO DE CARENCIA"))
         item = self.Table_Fertilizers_2.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "COSTO"))
+        item.setText(_translate("Client_Found", "COSTO"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Client_Found = QtWidgets.QMainWindow()
+    ui = Ui_Client_Found()
+    ui.setupUi(Client_Found)
+    Client_Found.show()
     sys.exit(app.exec_())

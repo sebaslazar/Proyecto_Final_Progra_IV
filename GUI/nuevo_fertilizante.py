@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(799, 608)
-        self.Background = QtWidgets.QWidget(MainWindow)
+class Ui_Add_Fertilizer(object):
+    def setupUi(self, Add_Fertilizer):
+        Add_Fertilizer.setObjectName("Add_Fertilizer")
+        Add_Fertilizer.resize(799, 608)
+        self.Background = QtWidgets.QWidget(Add_Fertilizer)
         self.Background.setStyleSheet("QWidget{\n"
 "    background-color: rgb(236, 236, 236)\n"
 "}")
@@ -203,29 +203,29 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         spacerItem8 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem8)
-        MainWindow.setCentralWidget(self.Background)
+        Add_Fertilizer.setCentralWidget(self.Background)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Add_Fertilizer)
+        QtCore.QMetaObject.connectSlotsByName(Add_Fertilizer)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Add_Fertilizer):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Agregar Fertilizante"))
-        self.Introduction.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese los datos del nuevo fertilizante</span></p></body></html>"))
-        self.Label.setText(_translate("MainWindow", "Nombre"))
-        self.Label_5.setText(_translate("MainWindow", "ICA"))
-        self.Label_4.setText(_translate("MainWindow", "Frecuencia"))
-        self.Label_3.setText(_translate("MainWindow", "Última Aplicación"))
-        self.Label_2.setText(_translate("MainWindow", "Costo"))
-        self.Cancel.setText(_translate("MainWindow", "Cancelar"))
-        self.Add.setText(_translate("MainWindow", "Agregar"))
+        Add_Fertilizer.setWindowTitle(_translate("Add_Fertilizer", "Agregar Fertilizante"))
+        self.Introduction.setText(_translate("Add_Fertilizer", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese los datos del nuevo fertilizante</span></p></body></html>"))
+        self.Label.setText(_translate("Add_Fertilizer", "Nombre"))
+        self.Label_5.setText(_translate("Add_Fertilizer", "ICA"))
+        self.Label_4.setText(_translate("Add_Fertilizer", "Frecuencia"))
+        self.Label_3.setText(_translate("Add_Fertilizer", "Última Aplicación"))
+        self.Label_2.setText(_translate("Add_Fertilizer", "Costo"))
+        self.Cancel.setText(_translate("Add_Fertilizer", "Cancelar"))
+        self.Add.setText(_translate("Add_Fertilizer", "Agregar"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Add_Fertilizer = QtWidgets.QMainWindow()
+    ui = Ui_Add_Fertilizer()
+    ui.setupUi(Add_Fertilizer)
+    Add_Fertilizer.show()
     sys.exit(app.exec_())
