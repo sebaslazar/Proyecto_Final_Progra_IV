@@ -128,7 +128,7 @@ class Ui_Add_Client(object):
         self.horizontalLayout_3.addWidget(self.Cancel)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem)
-        self.Confirm = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.Confirm = QtWidgets.QPushButton(self.horizontalLayoutWidget, clicked=lambda: self.open_purchase_product_window(Add_Client, Main_Menu))
         self.Confirm.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Confirm.setObjectName("Confirm")
         self.horizontalLayout_3.addWidget(self.Confirm)
@@ -136,8 +136,6 @@ class Ui_Add_Client(object):
         self.Instruction.setGeometry(QtCore.QRect(0, 40, 411, 71))
         self.Instruction.setObjectName("Instruction")
         Add_Client.setCentralWidget(self.Background)
-
-        self.Confirm.clicked.connect(self.open_purchase_product_window)
 
         self.retranslateUi(Add_Client)
         QtCore.QMetaObject.connectSlotsByName(Add_Client)
@@ -155,10 +153,10 @@ class Ui_Add_Client(object):
                                             "align=\"center\"><span style=\" font-size:15pt;\">(Cédula sin puntos, "
                                             "comas ni guiones)</span></p></body></html>"))
 
-    def open_purchase_product_window(self):
+    def open_purchase_product_window(self, Add_Client, Main_Menu):
         self.ventana = QtWidgets.QMainWindow()
         self.ui = Ui_Purchase_Product()
-        self.ui.setupUi(self.ventana)
+        self.ui.setupUi(self.ventana, Add_Client, Main_Menu)
         self.ventana.show()
 
 

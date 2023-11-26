@@ -12,13 +12,20 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Purchase_Product(object):
-    def setupUi(self, Purchase_Product):
+
+    def back_main_menu_window(self, Purchase_Product, Add_Client, Main_Menu):
+        Add_Client.hide()
+        Main_Menu.show()
+        Purchase_Product.close()
+
+
+    def setupUi(self, Purchase_Product, Add_Client, Main_Menu):
         Purchase_Product.setObjectName("Purchase_Product")
         Purchase_Product.resize(920, 643)
         self.Background = QtWidgets.QWidget(Purchase_Product)
         self.Background.setStyleSheet("QWidget{\n"
-"    background-color: rgb(236, 236, 236)\n"
-"}")
+                                      "    background-color: rgb(236, 236, 236)\n"
+                                      "}")
         self.Background.setObjectName("Background")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.Background)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -43,20 +50,20 @@ class Ui_Purchase_Product(object):
         self.Antibiotics.setFont(font)
         self.Antibiotics.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Antibiotics.setStyleSheet("QPushButton{\n"
-"    background-color: rgb(252, 104, 104);\n"
-"    padding: 10px;\n"
-"    border-radius: 10px;\n"
-"    border: 1px solid black\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    background-color: rgb(245, 132, 132);\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(150, 47, 47);\n"
-"    color: white\n"
-"}")
+                                       "    background-color: rgb(252, 104, 104);\n"
+                                       "    padding: 10px;\n"
+                                       "    border-radius: 10px;\n"
+                                       "    border: 1px solid black\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton::hover{\n"
+                                       "    background-color: rgb(245, 132, 132);\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton::pressed{\n"
+                                       "    background-color: rgb(150, 47, 47);\n"
+                                       "    color: white\n"
+                                       "}")
         self.Antibiotics.setObjectName("Antibiotics")
         self.Type_Products.addWidget(self.Antibiotics)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
@@ -67,20 +74,20 @@ class Ui_Purchase_Product(object):
         self.Fertilizers.setFont(font)
         self.Fertilizers.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Fertilizers.setStyleSheet("QPushButton{\n"
-"    background-color: rgb(72, 188, 250);\n"
-"    padding: 10px;\n"
-"    border-radius: 10px;\n"
-"    border: 1px solid black\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    background-color: rgb(144, 210, 245);\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(25, 90, 125);\n"
-"    color: white\n"
-"}")
+                                       "    background-color: rgb(72, 188, 250);\n"
+                                       "    padding: 10px;\n"
+                                       "    border-radius: 10px;\n"
+                                       "    border: 1px solid black\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton::hover{\n"
+                                       "    background-color: rgb(144, 210, 245);\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton::pressed{\n"
+                                       "    background-color: rgb(25, 90, 125);\n"
+                                       "    color: white\n"
+                                       "}")
         self.Fertilizers.setObjectName("Fertilizers")
         self.Type_Products.addWidget(self.Fertilizers)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
@@ -91,20 +98,20 @@ class Ui_Purchase_Product(object):
         self.Pest_Control.setFont(font)
         self.Pest_Control.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Pest_Control.setStyleSheet("QPushButton{\n"
-"    background-color: rgb(70, 224, 87);\n"
-"    padding: 10px;\n"
-"    border-radius: 10px;\n"
-"    border: 1px solid black\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    background-color: rgb(125, 227, 136);\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(28, 120, 38);\n"
-"    color: white\n"
-"}")
+                                        "    background-color: rgb(70, 224, 87);\n"
+                                        "    padding: 10px;\n"
+                                        "    border-radius: 10px;\n"
+                                        "    border: 1px solid black\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton::hover{\n"
+                                        "    background-color: rgb(125, 227, 136);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton::pressed{\n"
+                                        "    background-color: rgb(28, 120, 38);\n"
+                                        "    color: white\n"
+                                        "}")
         self.Pest_Control.setObjectName("Pest_Control")
         self.Type_Products.addWidget(self.Pest_Control)
         self.verticalLayout.addLayout(self.Type_Products)
@@ -129,9 +136,9 @@ class Ui_Purchase_Product(object):
         font.setWeight(75)
         self.Purchased_Products.setFont(font)
         self.Purchased_Products.setStyleSheet("QLabel{\n"
-"    background-color: rgb(255, 255, 127);\n"
-"    border: 1px solid black\n"
-"}")
+                                              "    background-color: rgb(255, 255, 127);\n"
+                                              "    border: 1px solid black\n"
+                                              "}")
         self.Purchased_Products.setScaledContents(False)
         self.Purchased_Products.setAlignment(QtCore.Qt.AlignCenter)
         self.Purchased_Products.setObjectName("Purchased_Products")
@@ -144,12 +151,12 @@ class Ui_Purchase_Product(object):
         self.List_Purchased_Products.setFont(font)
         self.List_Purchased_Products.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.List_Purchased_Products.setStyleSheet("QListWidget{\n"
-"    background-color: white\n"
-"}\n"
-"\n"
-"QListWidget::item:hover{\n"
-"    background-color: rgb(170, 255, 127);\n"
-"}")
+                                                   "    background-color: white\n"
+                                                   "}\n"
+                                                   "\n"
+                                                   "QListWidget::item:hover{\n"
+                                                   "    background-color: rgb(170, 255, 127);\n"
+                                                   "}")
         self.List_Purchased_Products.setObjectName("List_Purchased_Products")
         item = QtWidgets.QListWidgetItem()
         item.setFlags(QtCore.Qt.ItemIsEnabled)
@@ -173,26 +180,27 @@ class Ui_Purchase_Product(object):
         self.Table_Antibiotics.setFont(font)
         self.Table_Antibiotics.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Table_Antibiotics.setStyleSheet("QHeaderView::section{\n"
-"    width: 20px;\n"
-"    border: 2px solid black;\n"
-"    background-color: white;\n"
-"}\n"
-"\n"
-"QTableView{\n"
-"    gridline-color: black;\n"
-"}\n"
-"\n"
-"QTableView::item{\n"
-"    background-color: white;\n"
-"    border: 1px solid black\n"
-"}\n"
-"\n"
-"QTableView::item:selected{\n"
-"    background-color: rgb(94, 110, 255)\n"
-"}")
+                                             "    width: 20px;\n"
+                                             "    border: 2px solid black;\n"
+                                             "    background-color: white;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTableView{\n"
+                                             "    gridline-color: black;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTableView::item{\n"
+                                             "    background-color: white;\n"
+                                             "    border: 1px solid black\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTableView::item:selected{\n"
+                                             "    background-color: rgb(94, 110, 255)\n"
+                                             "}")
         self.Table_Antibiotics.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Table_Antibiotics.setAutoScrollMargin(16)
-        self.Table_Antibiotics.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.DoubleClicked|QtWidgets.QAbstractItemView.EditKeyPressed)
+        self.Table_Antibiotics.setEditTriggers(
+            QtWidgets.QAbstractItemView.AnyKeyPressed | QtWidgets.QAbstractItemView.DoubleClicked | QtWidgets.QAbstractItemView.EditKeyPressed)
         self.Table_Antibiotics.setProperty("showDropIndicator", False)
         self.Table_Antibiotics.setDragDropOverwriteMode(False)
         self.Table_Antibiotics.setAlternatingRowColors(False)
@@ -241,43 +249,43 @@ class Ui_Purchase_Product(object):
         item.setFont(font)
         self.Table_Antibiotics.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(0, 0, item)
         item = QtWidgets.QTableWidgetItem()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.NoBrush)
         item.setBackground(brush)
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(0, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(1, 0, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(1, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(2, 0, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(2, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(2, 2, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Antibiotics.setItem(2, 3, item)
         self.Table_Antibiotics.horizontalHeader().setVisible(True)
         self.Table_Antibiotics.horizontalHeader().setCascadingSectionResizes(False)
@@ -297,27 +305,28 @@ class Ui_Purchase_Product(object):
         self.Table_Pest_Control.setFont(font)
         self.Table_Pest_Control.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Table_Pest_Control.setStyleSheet("QHeaderView::section{\n"
-"    width: 20px;\n"
-"    border: 2px solid black;\n"
-"    background-color: white;\n"
-"}\n"
-"\n"
-"QTableView{\n"
-"    gridline-color: black;\n"
-"}\n"
-"\n"
-"QTableView::item{\n"
-"    background-color: white;\n"
-"    border: 1px solid black\n"
-"}\n"
-"\n"
-"QTableView::item:selected{\n"
-"    background-color: rgb(94, 110, 255)\n"
-"}")
+                                              "    width: 20px;\n"
+                                              "    border: 2px solid black;\n"
+                                              "    background-color: white;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QTableView{\n"
+                                              "    gridline-color: black;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QTableView::item{\n"
+                                              "    background-color: white;\n"
+                                              "    border: 1px solid black\n"
+                                              "}\n"
+                                              "\n"
+                                              "QTableView::item:selected{\n"
+                                              "    background-color: rgb(94, 110, 255)\n"
+                                              "}")
         self.Table_Pest_Control.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Table_Pest_Control.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
         self.Table_Pest_Control.setAutoScrollMargin(16)
-        self.Table_Pest_Control.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.DoubleClicked|QtWidgets.QAbstractItemView.EditKeyPressed)
+        self.Table_Pest_Control.setEditTriggers(
+            QtWidgets.QAbstractItemView.AnyKeyPressed | QtWidgets.QAbstractItemView.DoubleClicked | QtWidgets.QAbstractItemView.EditKeyPressed)
         self.Table_Pest_Control.setProperty("showDropIndicator", False)
         self.Table_Pest_Control.setDragDropOverwriteMode(False)
         self.Table_Pest_Control.setAlternatingRowColors(False)
@@ -369,49 +378,49 @@ class Ui_Purchase_Product(object):
         item.setFont(font)
         self.Table_Pest_Control.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(0, 0, item)
         item = QtWidgets.QTableWidgetItem()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.NoBrush)
         item.setBackground(brush)
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(0, 2, item)
         item = QtWidgets.QTableWidgetItem()
         self.Table_Pest_Control.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(0, 4, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(1, 0, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(1, 2, item)
         item = QtWidgets.QTableWidgetItem()
         self.Table_Pest_Control.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(1, 4, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(2, 0, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(2, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(2, 2, item)
         item = QtWidgets.QTableWidgetItem()
         self.Table_Pest_Control.setItem(2, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Pest_Control.setItem(2, 4, item)
         self.Table_Pest_Control.horizontalHeader().setVisible(True)
         self.Table_Pest_Control.horizontalHeader().setCascadingSectionResizes(False)
@@ -430,27 +439,28 @@ class Ui_Purchase_Product(object):
         self.Table_Fertilizers.setFont(font)
         self.Table_Fertilizers.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Table_Fertilizers.setStyleSheet("QHeaderView::section{\n"
-"    width: 20px;\n"
-"    border: 2px solid black;\n"
-"    background-color: white;\n"
-"}\n"
-"\n"
-"QTableView{\n"
-"    gridline-color: black;\n"
-"}\n"
-"\n"
-"QTableView::item{\n"
-"    background-color: white;\n"
-"    border: 1px solid black\n"
-"}\n"
-"\n"
-"QTableView::item:selected{\n"
-"    background-color: rgb(94, 110, 255)\n"
-"}")
+                                             "    width: 20px;\n"
+                                             "    border: 2px solid black;\n"
+                                             "    background-color: white;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTableView{\n"
+                                             "    gridline-color: black;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTableView::item{\n"
+                                             "    background-color: white;\n"
+                                             "    border: 1px solid black\n"
+                                             "}\n"
+                                             "\n"
+                                             "QTableView::item:selected{\n"
+                                             "    background-color: rgb(94, 110, 255)\n"
+                                             "}")
         self.Table_Fertilizers.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Table_Fertilizers.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.Table_Fertilizers.setAutoScrollMargin(16)
-        self.Table_Fertilizers.setEditTriggers(QtWidgets.QAbstractItemView.AnyKeyPressed|QtWidgets.QAbstractItemView.DoubleClicked|QtWidgets.QAbstractItemView.EditKeyPressed)
+        self.Table_Fertilizers.setEditTriggers(
+            QtWidgets.QAbstractItemView.AnyKeyPressed | QtWidgets.QAbstractItemView.DoubleClicked | QtWidgets.QAbstractItemView.EditKeyPressed)
         self.Table_Fertilizers.setProperty("showDropIndicator", False)
         self.Table_Fertilizers.setDragDropOverwriteMode(False)
         self.Table_Fertilizers.setAlternatingRowColors(False)
@@ -502,49 +512,49 @@ class Ui_Purchase_Product(object):
         item.setFont(font)
         self.Table_Fertilizers.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(0, 0, item)
         item = QtWidgets.QTableWidgetItem()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.NoBrush)
         item.setBackground(brush)
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(0, 2, item)
         item = QtWidgets.QTableWidgetItem()
         self.Table_Fertilizers.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(0, 4, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(1, 0, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(1, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(1, 2, item)
         item = QtWidgets.QTableWidgetItem()
         self.Table_Fertilizers.setItem(1, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(1, 4, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(2, 0, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(2, 1, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(2, 2, item)
         item = QtWidgets.QTableWidgetItem()
         self.Table_Fertilizers.setItem(2, 3, item)
         item = QtWidgets.QTableWidgetItem()
-        item.setFlags(QtCore.Qt.ItemIsSelectable|QtCore.Qt.ItemIsUserCheckable|QtCore.Qt.ItemIsEnabled)
+        item.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled)
         self.Table_Fertilizers.setItem(2, 4, item)
         self.Table_Fertilizers.horizontalHeader().setVisible(True)
         self.Table_Fertilizers.horizontalHeader().setCascadingSectionResizes(False)
@@ -568,24 +578,24 @@ class Ui_Purchase_Product(object):
         self.Add_Products.setFont(font)
         self.Add_Products.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Add_Products.setStyleSheet("QPushButton{\n"
-"    background-color: rgb(170, 0, 0);\n"
-"    color: white;\n"
-"    padding: 10px;\n"
-"    border-radius: 5px;\n"
-"    border: 2px solid black\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    background-color: rgb(245, 175, 137);\n"
-"    color: black\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(255, 0, 0);\n"
-"    color: white\n"
-"}")
+                                        "    background-color: rgb(170, 0, 0);\n"
+                                        "    color: white;\n"
+                                        "    padding: 10px;\n"
+                                        "    border-radius: 5px;\n"
+                                        "    border: 2px solid black\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton::hover{\n"
+                                        "    background-color: rgb(245, 175, 137);\n"
+                                        "    color: black\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton::pressed{\n"
+                                        "    background-color: rgb(255, 0, 0);\n"
+                                        "    color: white\n"
+                                        "}")
         self.Add_Products.setObjectName("Add_Products")
-        self.End_Purchase = QtWidgets.QPushButton(self.frame_2)
+        self.End_Purchase = QtWidgets.QPushButton(self.frame_2, clicked=lambda: self.back_main_menu_window(Purchase_Product, Add_Client, Main_Menu))
         self.End_Purchase.setGeometry(QtCore.QRect(500, 20, 271, 41))
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -594,37 +604,37 @@ class Ui_Purchase_Product(object):
         self.End_Purchase.setFont(font)
         self.End_Purchase.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.End_Purchase.setStyleSheet("QPushButton{\n"
-"    background-color: rgb(170, 0, 0);\n"
-"    color: white;\n"
-"    padding: 10px;\n"
-"    border-radius: 5px;\n"
-"    border: 2px solid black\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    background-color: rgb(245, 175, 137);\n"
-"    color: black\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(255, 0, 0);\n"
-"    color: white\n"
-"}")
+                                        "    background-color: rgb(170, 0, 0);\n"
+                                        "    color: white;\n"
+                                        "    padding: 10px;\n"
+                                        "    border-radius: 5px;\n"
+                                        "    border: 2px solid black\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton::hover{\n"
+                                        "    background-color: rgb(245, 175, 137);\n"
+                                        "    color: black\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton::pressed{\n"
+                                        "    background-color: rgb(255, 0, 0);\n"
+                                        "    color: white\n"
+                                        "}")
         self.End_Purchase.setObjectName("End_Purchase")
         self.verticalLayout.addWidget(self.frame_2)
         self.horizontalLayout.addWidget(self.frame)
         Purchase_Product.setCentralWidget(self.Background)
 
         self.retranslateUi(Purchase_Product)
-        self.Fertilizers.clicked.connect(self.Table_Antibiotics.hide) # type: ignore
-        self.Pest_Control.clicked.connect(self.Table_Antibiotics.hide) # type: ignore
-        self.Antibiotics.clicked.connect(self.Table_Antibiotics.show) # type: ignore
-        self.Fertilizers.clicked.connect(self.Table_Fertilizers.show) # type: ignore
-        self.Antibiotics.clicked.connect(self.Table_Fertilizers.hide) # type: ignore
-        self.Pest_Control.clicked.connect(self.Table_Fertilizers.hide) # type: ignore
-        self.Pest_Control.clicked.connect(self.Table_Pest_Control.show) # type: ignore
-        self.Fertilizers.clicked.connect(self.Table_Pest_Control.hide) # type: ignore
-        self.Antibiotics.clicked.connect(self.Table_Pest_Control.hide) # type: ignore
+        self.Fertilizers.clicked.connect(self.Table_Antibiotics.hide)  # type: ignore
+        self.Pest_Control.clicked.connect(self.Table_Antibiotics.hide)  # type: ignore
+        self.Antibiotics.clicked.connect(self.Table_Antibiotics.show)  # type: ignore
+        self.Fertilizers.clicked.connect(self.Table_Fertilizers.show)  # type: ignore
+        self.Antibiotics.clicked.connect(self.Table_Fertilizers.hide)  # type: ignore
+        self.Pest_Control.clicked.connect(self.Table_Fertilizers.hide)  # type: ignore
+        self.Pest_Control.clicked.connect(self.Table_Pest_Control.show)  # type: ignore
+        self.Fertilizers.clicked.connect(self.Table_Pest_Control.hide)  # type: ignore
+        self.Antibiotics.clicked.connect(self.Table_Pest_Control.hide)  # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Purchase_Product)
 
     def retranslateUi(self, Purchase_Product):
@@ -787,6 +797,7 @@ class Ui_Purchase_Product(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Purchase_Product = QtWidgets.QMainWindow()
     ui = Ui_Purchase_Product()
