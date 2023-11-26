@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(645, 694)
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         MainWindow.setStatusTip("")
         MainWindow.setAutoFillBackground(False)
@@ -80,6 +80,20 @@ class Ui_MainWindow(object):
 "\n"
 "#Pest_Control::pressed{\n"
 "    background-color: rgb(208, 255, 208);\n"
+"    border-color:gray;\n"
+"}\n"
+"\n"
+"#Back_Button{\n"
+"    background-color: rgb(255, 208, 20)\n"
+"}\n"
+"\n"
+"#Back_Button::hover{\n"
+"    background-color: rgb(252, 225, 104);\n"
+"    border-color: rgb(138, 113, 0);\n"
+"}\n"
+"\n"
+"#Back_Button::pressed{\n"
+"    background-color: rgb(252, 241, 189);\n"
 "    border-color:gray;\n"
 "}\n"
 "\n"
@@ -160,6 +174,12 @@ class Ui_MainWindow(object):
         self.Pest_Control.setFlat(False)
         self.Pest_Control.setObjectName("Pest_Control")
         self.verticalLayout.addWidget(self.Pest_Control)
+        self.Back_Button = QtWidgets.QPushButton(self.frame)
+        font = QtGui.QFont()
+        font.setPointSize(28)
+        self.Back_Button.setFont(font)
+        self.Back_Button.setObjectName("Back_Button")
+        self.verticalLayout.addWidget(self.Back_Button)
         self.verticalLayout_2.addWidget(self.frame, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -173,6 +193,7 @@ class Ui_MainWindow(object):
         self.Antibiotics.setText(_translate("MainWindow", "ANTIBIÓTICO"))
         self.Fertilizers.setText(_translate("MainWindow", "FERTILIZANTE"))
         self.Pest_Control.setText(_translate("MainWindow", "CONTROL DE PLAGAS"))
+        self.Back_Button.setText(_translate("MainWindow", "RETROCEDER"))
 
 
 if __name__ == "__main__":
