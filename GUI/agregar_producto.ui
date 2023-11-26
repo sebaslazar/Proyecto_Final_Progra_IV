@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>645</width>
+    <height>694</height>
    </rect>
   </property>
   <property name="cursor">
@@ -102,6 +102,20 @@
 
 #Pest_Control::pressed{
 	background-color: rgb(208, 255, 208);
+	border-color:gray;
+}
+
+#Back_Button{
+	background-color: rgb(255, 208, 20)
+}
+
+#Back_Button::hover{
+	background-color: rgb(252, 225, 104);
+	border-color: rgb(138, 113, 0);
+}
+
+#Back_Button::pressed{
+	background-color: rgb(252, 241, 189);
 	border-color:gray;
 }
 
@@ -273,6 +287,18 @@ QFrame{
          </property>
          <property name="flat">
           <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Back_Button">
+         <property name="font">
+          <font>
+           <pointsize>28</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>RETROCEDER</string>
          </property>
         </widget>
        </item>
