@@ -9,9 +9,16 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from agregar_cliente import Ui_Add_Client
+from buscar_cliente import Ui_Search_Client
+from agregar_producto import Ui_Add_Product
 
 
 class Ui_Main_Menu(object):
+    def __init__(self):
+        self.ui = None
+        self.ventana = None
+
     def setupUi(self, Main_Menu):
         Main_Menu.setObjectName("Main_Menu")
         Main_Menu.resize(800, 600)
@@ -20,8 +27,8 @@ class Ui_Main_Menu(object):
         Main_Menu.setAutoFillBackground(False)
         self.centralwidget = QtWidgets.QWidget(Main_Menu)
         self.centralwidget.setStyleSheet("QWidget{\n"
-"    background-color: rgb(236, 236, 236)\n"
-"}")
+                                         "    background-color: rgb(236, 236, 236)\n"
+                                         "}")
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -35,27 +42,27 @@ class Ui_Main_Menu(object):
         self.frame.setSizePolicy(sizePolicy)
         self.frame.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.frame.setStyleSheet("QPushButton{\n"
-"    padding: 20;\n"
-"     background-color: rgb(236, 236, 236);\n"
-"    border: 2px solid rgb(182, 182, 182);\n"
-"    border-radius: 6px;\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    background-color: rgb(85, 170, 255);\n"
-"    color: white;\n"
-"    border-width: 2px;\n"
-"    border-color: rgb(0, 4, 255);\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    background-color: rgb(0, 0, 127);\n"
-"    color: gray;\n"
-"}\n"
-"\n"
-"QFrame{\n"
-"    padding: 50;\n"
-"}")
+                                 "    padding: 20;\n"
+                                 "     background-color: rgb(236, 236, 236);\n"
+                                 "    border: 2px solid rgb(182, 182, 182);\n"
+                                 "    border-radius: 6px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton::hover{\n"
+                                 "    background-color: rgb(85, 170, 255);\n"
+                                 "    color: white;\n"
+                                 "    border-width: 2px;\n"
+                                 "    border-color: rgb(0, 4, 255);\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton::pressed{\n"
+                                 "    background-color: rgb(0, 0, 127);\n"
+                                 "    color: gray;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QFrame{\n"
+                                 "    padding: 50;\n"
+                                 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -109,8 +116,12 @@ class Ui_Main_Menu(object):
         self.add_product.setFlat(False)
         self.add_product.setObjectName("add_product")
         self.verticalLayout.addWidget(self.add_product)
-        self.verticalLayout_2.addWidget(self.frame, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.verticalLayout_2.addWidget(self.frame, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
         Main_Menu.setCentralWidget(self.centralwidget)
+
+        self.buy.clicked.connect(self.open_add_client_window)
+        self.search_id.clicked.connect(self.open_search_client_window)
+        self.add_product.clicked.connect(self.open_add_product_window)
 
         self.retranslateUi(Main_Menu)
         QtCore.QMetaObject.connectSlotsByName(Main_Menu)
@@ -121,14 +132,38 @@ class Ui_Main_Menu(object):
         self.buy.setToolTip(_translate("Main_Menu", "<html><head/><body><p>Navega por nuestro stock</p></body></html>"))
         self.buy.setWhatsThis(_translate("Main_Menu", "<html><head/><body><p><br/></p></body></html>"))
         self.buy.setText(_translate("Main_Menu", "Comprar"))
-        self.search_id.setToolTip(_translate("Main_Menu", "<html><head/><body><p>Busca a un cliente por su cédula</p></body></html>"))
+        self.search_id.setToolTip(
+            _translate("Main_Menu", "<html><head/><body><p>Busca a un cliente por su cédula</p></body></html>"))
         self.search_id.setText(_translate("Main_Menu", "Buscar Cliente"))
-        self.add_product.setToolTip(_translate("Main_Menu", "<html><head/><body><p>Añade un producto a la base de datos</p></body></html>"))
+        self.add_product.setToolTip(
+            _translate("Main_Menu", "<html><head/><body><p>Añade un producto a la base de datos</p></body></html>"))
         self.add_product.setText(_translate("Main_Menu", "Agregar Producto"))
+
+    def open_add_client_window(self):
+        self.ventana = QtWidgets.QMainWindow()
+        self.ui = Ui_Add_Client()
+        self.ui.setupUi(self.ventana)
+        self.ventana.show()
+        Main_Menu.hide()
+
+    def open_search_client_window(self):
+        self.ventana = QtWidgets.QMainWindow()
+        self.ui = Ui_Search_Client()
+        self.ui.setupUi(self.ventana)
+        self.ventana.show()
+        Main_Menu.hide()
+
+    def open_add_product_window(self):
+        self.ventana = QtWidgets.QMainWindow()
+        self.ui = Ui_Add_Product()
+        self.ui.setupUi(self.ventana)
+        self.ventana.show()
+        Main_Menu.hide()
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Main_Menu = QtWidgets.QMainWindow()
     ui = Ui_Main_Menu()

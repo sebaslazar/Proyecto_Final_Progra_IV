@@ -17,59 +17,59 @@ class Ui_Search_Client(object):
         Search_Client.resize(799, 600)
         self.Background = QtWidgets.QWidget(Search_Client)
         self.Background.setStyleSheet("QWidget{\n"
-"    background-color: rgb(236, 236, 236)\n"
-"}")
+                                      "    background-color: rgb(236, 236, 236)\n"
+                                      "}")
         self.Background.setObjectName("Background")
         self.frame = QtWidgets.QFrame(self.Background)
         self.frame.setGeometry(QtCore.QRect(193, 0, 412, 600))
         self.frame.setStyleSheet("QLineEdit{\n"
-"    background-color: white;\n"
-"    font-size: 30px;\n"
-"}\n"
-"\n"
-"QLabel{\n"
-"    font-size: 30px;\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"    font-size: 20px;\n"
-"    border: 2px solid;\n"
-"    border-radius: 6px;\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    color: rgb(225, 225, 225);\n"
-"    border-radius: 0;\n"
-"}\n"
-"\n"
-"#Search{\n"
-"    background-color: rgb(87, 255, 75);\n"
-"    border-color: rgb(0, 172, 0);\n"
-"}\n"
-"\n"
-"#Search::hover{\n"
-"    background-color: rgb(56, 247, 42);\n"
-"}\n"
-"\n"
-"#Search::pressed{\n"
-"    background-color: rgb(0, 172, 0);\n"
-"    border-color: rgb(87, 255, 75)\n"
-"}\n"
-"\n"
-"#Cancel{\n"
-"    background-color: rgb(242, 90, 90);\n"
-"    border-color: rgb(255, 0, 0)\n"
-"}\n"
-"\n"
-"#Cancel::hover{\n"
-"    background-color: rgb(237, 50, 50);\n"
-"    border-color: rgb(255, 0, 0)\n"
-"}\n"
-"\n"
-"#Cancel::pressed{\n"
-"    background-color: rgb(255, 0, 0);\n"
-"    border-color: rgb(255, 101, 101)\n"
-"}")
+                                 "    background-color: white;\n"
+                                 "    font-size: 30px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QLabel{\n"
+                                 "    font-size: 30px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton{\n"
+                                 "    font-size: 20px;\n"
+                                 "    border: 2px solid;\n"
+                                 "    border-radius: 6px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton::pressed{\n"
+                                 "    color: rgb(225, 225, 225);\n"
+                                 "    border-radius: 0;\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Search{\n"
+                                 "    background-color: rgb(87, 255, 75);\n"
+                                 "    border-color: rgb(0, 172, 0);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Search::hover{\n"
+                                 "    background-color: rgb(56, 247, 42);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Search::pressed{\n"
+                                 "    background-color: rgb(0, 172, 0);\n"
+                                 "    border-color: rgb(87, 255, 75)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel{\n"
+                                 "    background-color: rgb(242, 90, 90);\n"
+                                 "    border-color: rgb(255, 0, 0)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel::hover{\n"
+                                 "    background-color: rgb(237, 50, 50);\n"
+                                 "    border-color: rgb(255, 0, 0)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel::pressed{\n"
+                                 "    background-color: rgb(255, 0, 0);\n"
+                                 "    border-color: rgb(255, 101, 101)\n"
+                                 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -85,8 +85,8 @@ class Ui_Search_Client(object):
         font.setPointSize(-1)
         self.Label.setFont(font)
         self.Label.setStyleSheet("QLabel{\n"
-"    margin-right: 25px;\n"
-"}")
+                                 "    margin-right: 25px;\n"
+                                 "}")
         self.Label.setObjectName("Label")
         self.horizontalLayout_2.addWidget(self.Label)
         self.lineEdit = QtWidgets.QLineEdit(self.identification)
@@ -125,11 +125,13 @@ class Ui_Search_Client(object):
         self.Label.setText(_translate("Search_Client", "Cédula"))
         self.Cancel.setText(_translate("Search_Client", "Cancelar"))
         self.Search.setText(_translate("Search_Client", "Buscar"))
-        self.Introduction.setText(_translate("Search_Client", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese la cédula que desea buscar en </span></p><p align=\"center\"><span style=\" font-size:15pt;\">el sistema, sin puntos, comas o guiones.</span></p></body></html>"))
+        self.Introduction.setText(_translate("Search_Client",
+                                             "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese la cédula que desea buscar en </span></p><p align=\"center\"><span style=\" font-size:15pt;\">el sistema, sin puntos, comas o guiones.</span></p></body></html>"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Search_Client = QtWidgets.QMainWindow()
     ui = Ui_Search_Client()

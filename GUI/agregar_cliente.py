@@ -17,59 +17,59 @@ class Ui_Add_Client(object):
         Add_Client.resize(799, 600)
         self.Background = QtWidgets.QWidget(Add_Client)
         self.Background.setStyleSheet("QWidget{\n"
-"    background-color: rgb(236, 236, 236)\n"
-"}")
+                                      "    background-color: rgb(236, 236, 236)\n"
+                                      "}")
         self.Background.setObjectName("Background")
         self.frame = QtWidgets.QFrame(self.Background)
         self.frame.setGeometry(QtCore.QRect(193, 0, 412, 600))
         self.frame.setStyleSheet("QLineEdit{\n"
-"    background-color: white;\n"
-"    font-size: 20px;\n"
-"}\n"
-"\n"
-"QLabel{\n"
-"    font-size: 20px;\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"    font-size: 20px;\n"
-"    border: 2px solid;\n"
-"    border-radius: 6px;\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    color: rgb(225, 225, 225);\n"
-"    border-radius: 0;\n"
-"}\n"
-"\n"
-"#Confirm{\n"
-"    background-color: rgb(87, 255, 75);\n"
-"    border-color: rgb(0, 172, 0);\n"
-"}\n"
-"\n"
-"#Confirm::hover{\n"
-"    background-color: rgb(56, 247, 42);\n"
-"}\n"
-"\n"
-"#Confirm::pressed{\n"
-"    background-color: rgb(0, 172, 0);\n"
-"    border-color: rgb(87, 255, 75)\n"
-"}\n"
-"\n"
-"#Cancel{\n"
-"    background-color: rgb(242, 90, 90);\n"
-"    border-color: rgb(255, 0, 0)\n"
-"}\n"
-"\n"
-"#Cancel::hover{\n"
-"    background-color: rgb(237, 50, 50);\n"
-"    border-color: rgb(255, 0, 0)\n"
-"}\n"
-"\n"
-"#Cancel::pressed{\n"
-"    background-color: rgb(255, 0, 0);\n"
-"    border-color: rgb(255, 101, 101)\n"
-"}")
+                                 "    background-color: white;\n"
+                                 "    font-size: 20px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QLabel{\n"
+                                 "    font-size: 20px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton{\n"
+                                 "    font-size: 20px;\n"
+                                 "    border: 2px solid;\n"
+                                 "    border-radius: 6px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton::pressed{\n"
+                                 "    color: rgb(225, 225, 225);\n"
+                                 "    border-radius: 0;\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Confirm{\n"
+                                 "    background-color: rgb(87, 255, 75);\n"
+                                 "    border-color: rgb(0, 172, 0);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Confirm::hover{\n"
+                                 "    background-color: rgb(56, 247, 42);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Confirm::pressed{\n"
+                                 "    background-color: rgb(0, 172, 0);\n"
+                                 "    border-color: rgb(87, 255, 75)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel{\n"
+                                 "    background-color: rgb(242, 90, 90);\n"
+                                 "    border-color: rgb(255, 0, 0)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel::hover{\n"
+                                 "    background-color: rgb(237, 50, 50);\n"
+                                 "    border-color: rgb(255, 0, 0)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel::pressed{\n"
+                                 "    background-color: rgb(255, 0, 0);\n"
+                                 "    border-color: rgb(255, 101, 101)\n"
+                                 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -82,8 +82,8 @@ class Ui_Add_Client(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.Label_2 = QtWidgets.QLabel(self.identification)
         self.Label_2.setStyleSheet("QLabel{\n"
-"    margin-right: 25px;\n"
-"}")
+                                   "    margin-right: 25px;\n"
+                                   "}")
         self.Label_2.setObjectName("Label_2")
         self.horizontalLayout_2.addWidget(self.Label_2)
         self.lineEdit = QtWidgets.QLineEdit(self.identification)
@@ -99,8 +99,8 @@ class Ui_Add_Client(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.Label = QtWidgets.QLabel(self.Name)
         self.Label.setStyleSheet("QLabel{\n"
-"    margin-right: 20px\n"
-"}")
+                                 "    margin-right: 20px\n"
+                                 "}")
         self.Label.setObjectName("Label")
         self.horizontalLayout.addWidget(self.Label)
         self.lineEdit_2 = QtWidgets.QLineEdit(self.Name)
@@ -137,11 +137,13 @@ class Ui_Add_Client(object):
         self.Label.setText(_translate("Add_Client", "Nombre"))
         self.Cancel.setText(_translate("Add_Client", "Cancelar"))
         self.Confirm.setText(_translate("Add_Client", "Confirmar"))
-        self.Instruction.setText(_translate("Add_Client", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese la información del cliente</span></p><p align=\"center\"><span style=\" font-size:15pt;\">(Cédula sin puntos, comas ni guiones)</span></p></body></html>"))
+        self.Instruction.setText(_translate("Add_Client",
+                                            "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese la información del cliente</span></p><p align=\"center\"><span style=\" font-size:15pt;\">(Cédula sin puntos, comas ni guiones)</span></p></body></html>"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Add_Client = QtWidgets.QMainWindow()
     ui = Ui_Add_Client()

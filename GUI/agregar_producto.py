@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from menu_principal import Ui_Main_Menu
 
 
 class Ui_Add_Product(object):
@@ -20,8 +21,8 @@ class Ui_Add_Product(object):
         Add_Product.setAutoFillBackground(False)
         self.centralwidget = QtWidgets.QWidget(Add_Product)
         self.centralwidget.setStyleSheet("QWidget{\n"
-"    background-color: rgb(236, 236, 236)\n"
-"}")
+                                         "    background-color: rgb(236, 236, 236)\n"
+                                         "}")
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -35,82 +36,82 @@ class Ui_Add_Product(object):
         self.frame.setSizePolicy(sizePolicy)
         self.frame.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.frame.setStyleSheet("QPushButton{\n"
-"    padding: 20;\n"
-"    border:2px solid black;\n"
-"    border-radius: 6px;\n"
-"    color: rgb(39, 39, 39)\n"
-"}\n"
-"\n"
-"#Antibiotics{\n"
-"    background-color: rgb(255, 0, 0);\n"
-"}\n"
-"\n"
-"#Antibiotics::hover{\n"
-"    background-color: rgb(252, 104, 104);\n"
-"    border:2px solid rgb(170, 0, 0);\n"
-"}\n"
-"\n"
-"#Antibiotics::pressed{\n"
-"    background-color: rgb(255, 206, 206);\n"
-"    border-color:gray;\n"
-"}\n"
-"\n"
-"#Fertilizers{\n"
-"    background-color: rgb(0, 81, 255);\n"
-"}\n"
-"\n"
-"#Fertilizers::hover{\n"
-"    background-color: rgb(72, 188, 250);\n"
-"    border:2px solid rgb(0, 0, 127);\n"
-"}\n"
-"\n"
-"#Fertilizers::pressed{\n"
-"    background-color: rgb(202, 246, 255);\n"
-"    border-color:gray;\n"
-"}\n"
-"\n"
-"#Pest_Control{\n"
-"    background-color: rgb(0, 170, 0);\n"
-"}\n"
-"\n"
-"#Pest_Control::hover{\n"
-"    background-color: rgb(70, 224, 87);\n"
-"    border: 2px solid rgb(0, 85, 0)\n"
-"}\n"
-"\n"
-"#Pest_Control::pressed{\n"
-"    background-color: rgb(208, 255, 208);\n"
-"    border-color:gray;\n"
-"}\n"
-"\n"
-"#Back_Button{\n"
-"    background-color: rgb(255, 208, 20)\n"
-"}\n"
-"\n"
-"#Back_Button::hover{\n"
-"    background-color: rgb(252, 225, 104);\n"
-"    border-color: rgb(138, 113, 0);\n"
-"}\n"
-"\n"
-"#Back_Button::pressed{\n"
-"    background-color: rgb(252, 241, 189);\n"
-"    border-color:gray;\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    background-color: rgb(85, 170, 255);\n"
-"    color: white;\n"
-"    border-width: 2px;\n"
-"    border-color: rgb(0, 4, 255);\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    color: grey;\n"
-"}\n"
-"\n"
-"QFrame{\n"
-"    padding: 50;\n"
-"}")
+                                 "    padding: 20;\n"
+                                 "    border:2px solid black;\n"
+                                 "    border-radius: 6px;\n"
+                                 "    color: rgb(39, 39, 39)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Antibiotics{\n"
+                                 "    background-color: rgb(255, 0, 0);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Antibiotics::hover{\n"
+                                 "    background-color: rgb(252, 104, 104);\n"
+                                 "    border:2px solid rgb(170, 0, 0);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Antibiotics::pressed{\n"
+                                 "    background-color: rgb(255, 206, 206);\n"
+                                 "    border-color:gray;\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Fertilizers{\n"
+                                 "    background-color: rgb(0, 81, 255);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Fertilizers::hover{\n"
+                                 "    background-color: rgb(72, 188, 250);\n"
+                                 "    border:2px solid rgb(0, 0, 127);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Fertilizers::pressed{\n"
+                                 "    background-color: rgb(202, 246, 255);\n"
+                                 "    border-color:gray;\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Pest_Control{\n"
+                                 "    background-color: rgb(0, 170, 0);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Pest_Control::hover{\n"
+                                 "    background-color: rgb(70, 224, 87);\n"
+                                 "    border: 2px solid rgb(0, 85, 0)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Pest_Control::pressed{\n"
+                                 "    background-color: rgb(208, 255, 208);\n"
+                                 "    border-color:gray;\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Back_Button{\n"
+                                 "    background-color: rgb(255, 208, 20)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Back_Button::hover{\n"
+                                 "    background-color: rgb(252, 225, 104);\n"
+                                 "    border-color: rgb(138, 113, 0);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Back_Button::pressed{\n"
+                                 "    background-color: rgb(252, 241, 189);\n"
+                                 "    border-color:gray;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton::hover{\n"
+                                 "    background-color: rgb(85, 170, 255);\n"
+                                 "    color: white;\n"
+                                 "    border-width: 2px;\n"
+                                 "    border-color: rgb(0, 4, 255);\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton::pressed{\n"
+                                 "    color: grey;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QFrame{\n"
+                                 "    padding: 50;\n"
+                                 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -180,7 +181,7 @@ class Ui_Add_Product(object):
         self.Back_Button.setFont(font)
         self.Back_Button.setObjectName("Back_Button")
         self.verticalLayout.addWidget(self.Back_Button)
-        self.verticalLayout_2.addWidget(self.frame, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.verticalLayout_2.addWidget(self.frame, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
         Add_Product.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Add_Product)
@@ -189,7 +190,8 @@ class Ui_Add_Product(object):
     def retranslateUi(self, Add_Product):
         _translate = QtCore.QCoreApplication.translate
         Add_Product.setWindowTitle(_translate("Add_Product", "Administrador de Vivero"))
-        self.Introduction.setText(_translate("Add_Product", "<html><head/><body><p align=\"center\"><span style=\" font-size:22pt;\">Indique el tipo de producto que </span></p><p align=\"center\"><span style=\" font-size:22pt;\">desea agregar al sistema</span></p></body></html>"))
+        self.Introduction.setText(_translate("Add_Product",
+                                             "<html><head/><body><p align=\"center\"><span style=\" font-size:22pt;\">Indique el tipo de producto que </span></p><p align=\"center\"><span style=\" font-size:22pt;\">desea agregar al sistema</span></p></body></html>"))
         self.Antibiotics.setText(_translate("Add_Product", "ANTIBIÓTICO"))
         self.Fertilizers.setText(_translate("Add_Product", "FERTILIZANTE"))
         self.Pest_Control.setText(_translate("Add_Product", "CONTROL DE PLAGAS"))
@@ -198,6 +200,7 @@ class Ui_Add_Product(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Add_Product = QtWidgets.QMainWindow()
     ui = Ui_Add_Product()
