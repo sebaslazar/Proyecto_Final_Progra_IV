@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from cliente_encontrado import Ui_Client_Found
 from Controller import client_controler
-from utils import show_pop_up
+from utils import show_pop_up, validate_dni
 
 
 class Ui_Search_Client(object):
@@ -145,7 +145,10 @@ class Ui_Search_Client(object):
     def open_cliend_found_window(self, Search_Client, Main_Menu):
         dni = self.lineEdit.text().strip()
         client = self.search_client(dni)
-        if not client:
+        if not validate_dni(dni):
+            show_pop_up("Administración Tienda Agrícola", "Número de cédula inválido.",
+                        QtWidgets.QMessageBox.Warning)
+        elif not client:
             show_pop_up("Cliente no encontrado", "No se ha podido encontrar un cliente con la identificación dada", QtWidgets.QMessageBox.Warning)
             self.back_main_menu_window(Search_Client, Main_Menu)
         else:

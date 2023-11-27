@@ -165,10 +165,10 @@ class Ui_Add_Client(object):
             show_pop_up("Administración Tienda Agrícola", "Error al buscar cliente. Debe completar todos los campos.",
                         QtWidgets.QMessageBox.Warning)
         elif not validate_dni(dni):
-            show_pop_up("Administración Tienda Agrícola", "Número de cédula ingresado inválido.",
+            show_pop_up("Administración Tienda Agrícola", "Número de cédula inválido.",
                         QtWidgets.QMessageBox.Warning)
         elif not validate_name(name):
-            show_pop_up("Administración Tienda Agrícola", "Nombre ingresado inválido.",
+            show_pop_up("Administración Tienda Agrícola", "Nombre inválido.",
                         QtWidgets.QMessageBox.Warning)
         else:
             client = ClientControler.search(name=name, dni=dni)
