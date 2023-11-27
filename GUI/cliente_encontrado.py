@@ -370,7 +370,7 @@ class Ui_Client_Found(object):
     def set_product_data(self):
         self.clear_content()
         date = self.comboBox.currentText()
-        bill = bill_controler.ImpInterfaceFactura.search(date=date, bills=self.client.bills)
+        bill = bill_controler.BillControler.search(date=date, bills=self.client.bills)
         if isinstance(bill, bool): return
         products = bill.products
         for product in products:

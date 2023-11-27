@@ -9,6 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controller import antibiotic_controller
+from utils import validate_items, show_message, show_pop_up
 
 
 class Ui_Add_Antibiotic(object):
@@ -80,12 +82,14 @@ class Ui_Add_Antibiotic(object):
         self.frame.setObjectName("frame")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.frame)
         self.verticalLayout.setObjectName("verticalLayout")
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.Introduction = QtWidgets.QLabel(self.frame)
         self.Introduction.setObjectName("Introduction")
         self.verticalLayout.addWidget(self.Introduction)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem1)
         self.Name = QtWidgets.QFrame(self.frame)
         self.Name.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -104,7 +108,8 @@ class Ui_Add_Antibiotic(object):
         self.lineEdit.setObjectName("lineEdit")
         self.horizontalLayout_2.addWidget(self.lineEdit)
         self.verticalLayout.addWidget(self.Name)
-        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem2)
         self.Dose = QtWidgets.QFrame(self.frame)
         self.Dose.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -122,7 +127,8 @@ class Ui_Add_Antibiotic(object):
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.horizontalLayout.addWidget(self.lineEdit_2)
         self.verticalLayout.addWidget(self.Dose)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem3)
         self.Type_of_Animal = QtWidgets.QFrame(self.frame)
         self.Type_of_Animal.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -140,7 +146,8 @@ class Ui_Add_Antibiotic(object):
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.horizontalLayout_4.addWidget(self.lineEdit_3)
         self.verticalLayout.addWidget(self.Type_of_Animal)
-        spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem4 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem4)
         self.Value = QtWidgets.QFrame(self.frame)
         self.Value.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -159,22 +166,27 @@ class Ui_Add_Antibiotic(object):
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.horizontalLayout_5.addWidget(self.lineEdit_4)
         self.verticalLayout.addWidget(self.Value)
-        spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem5 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem5)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.Cancel = QtWidgets.QPushButton(self.frame, clicked=lambda: self.back_add_product_window(Add_Antibiotic, Add_Product))
+        self.Cancel = QtWidgets.QPushButton(
+            self.frame, clicked=lambda: self.back_add_product_window(Add_Antibiotic, Add_Product))
         self.Cancel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Cancel.setObjectName("Cancel")
         self.horizontalLayout_3.addWidget(self.Cancel)
-        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
+        spacerItem6 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem6)
-        self.Add = QtWidgets.QPushButton(self.frame, clicked=lambda: self.return_main_menu_window(Add_Antibiotic, Add_Product, Main_Menu))
+        self.Add = QtWidgets.QPushButton(self.frame, clicked=lambda: self.return_main_menu_window(
+            Add_Antibiotic, Add_Product, Main_Menu))
         self.Add.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Add.setObjectName("Add")
         self.horizontalLayout_3.addWidget(self.Add)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
-        spacerItem7 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem7 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem7)
         Add_Antibiotic.setCentralWidget(self.Background)
 
@@ -185,7 +197,8 @@ class Ui_Add_Antibiotic(object):
 
     def retranslateUi(self, Add_Antibiotic):
         _translate = QtCore.QCoreApplication.translate
-        Add_Antibiotic.setWindowTitle(_translate("Add_Antibiotic", "Agregar Antibiótico"))
+        Add_Antibiotic.setWindowTitle(_translate(
+            "Add_Antibiotic", "Agregar Antibiótico"))
         self.Introduction.setText(_translate("Add_Antibiotic",
                                              "<html><head/><body><p align=\"center\"><span style=\" "
                                              "font-size:15pt;\">Ingrese los datos del nuevo "
@@ -197,7 +210,31 @@ class Ui_Add_Antibiotic(object):
         self.Cancel.setText(_translate("Add_Antibiotic", "Cancelar"))
         self.Add.setText(_translate("Add_Antibiotic", "Agregar"))
 
+    def create_object(self):
+        name = self.lineEdit.text()
+        dose = self.lineEdit_2.text()
+        animal_type = self.lineEdit_3.text()
+        value = self.lineEdit_4.text()
+        variables = locals()
+        variables.pop("self")
+        if validate_items(*variables.values()):
+            try:
+                variables["value"] = int(variables["value"])
+                antibiotic_controller.AntibioticController.create(**variables)
+                return True
+            except ValueError:
+                show_pop_up("Error", "El costo debe ser numerico",
+                            QtWidgets.QMessageBox.Warning)
+        else:
+            show_pop_up("Error", "Debe ingresar todos los valores",
+                        QtWidgets.QMessageBox.Warning)
+
+        return False
+
     def return_main_menu_window(self, Add_Antibiotic, Add_Product, Main_Menu):
+        if not self.create_object():
+            return
+        show_message("Se ha guardado el nuevo producto con exito")
         Main_Menu.show()
         Add_Product.close()
         Add_Antibiotic.close()

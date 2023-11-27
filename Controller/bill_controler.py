@@ -12,4 +12,4 @@ class BillControler:
     
     @staticmethod
     def search(**kwargs):
-        return ImpInterfaceFactura
+        return ImpInterfaceFactura.search(**kwargs)

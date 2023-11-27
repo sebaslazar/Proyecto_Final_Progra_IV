@@ -667,6 +667,9 @@ class Ui_Purchase_Product(object):
         self.Pest_Control.clicked.connect(self.Table_Antibiotics.hide)  # type: ignore
         self.Pest_Control.clicked.connect(self.Table_Fertilizers.hide)  # type: ignore
         
+        self.products_table = {self.Table_Antibiotics: "antibiotic", self.Table_Fertilizers: "fertilizer", self.Table_Pest_Control: "pest"}
+        self.add_info()
+        
         QtCore.QMetaObject.connectSlotsByName(Purchase_Product)
 
         Add_Client.hide()
@@ -829,8 +832,8 @@ class Ui_Purchase_Product(object):
         self.End_Purchase.setText(_translate("Purchase_Product", "FINALIZAR COMPRA  >>"))
         
     def add_product(self):
-        products_table = {self.Table_Antibiotics: "antibiotic", self.Table_Fertilizers: "fertilizer", self.Table_Pest_Control: "pest"}
-        for product_type, name in products_table.items():
+        
+        for product_type, name in self.products_table.items():
             rows = set()
             for selected_item in product_type.selectedItems():
                 rows.add(selected_item.row())
@@ -849,15 +852,27 @@ class Ui_Purchase_Product(object):
             product_type.clearSelection()
             product_type.setCurrentCell(-1, -1)
             
+    def add_info(self):
+        for product_type, name in self.products_table.items():
+            new_products = eval(f"{name}_controller.{name.capitalize()}Controller.data()")
+            for product in new_products:
+                last_row = product_type.rowCount()
+                product_type.insertRow(last_row)
+                values = vars(product)
+                values.pop("type")
+                for column, value in enumerate(values.values()):
+                    item = QtWidgets.QTableWidgetItem(str(value))
+                    product_type.setItem(last_row, column, item)
+            
     def norm_params(self, product, _type):
         params = self.param_name.get(_type)
         for key, value in params.items():
             product_value = product.get(value)
             del product[value]
-            product[key] = float(product_value) if key == "value" else product_value
+            product[key] = int(product_value) if key == "value" else product_value
             
     def create_product_object(self, _type, params):
-        product = eval(f"{_type}_controller.{_type.capitalize()}Controller.create(**params)")
+        product = eval(f"{_type}_controller.{_type.capitalize()}Controller.create(**params, _case=1)")
         return product
 
 if __name__ == "__main__":

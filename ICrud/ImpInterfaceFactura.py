@@ -14,12 +14,8 @@ class ImpInterfaceFactura(ICrud.ICrud):
     def search(**kwargs):
         delivered_date = kwargs["date"]
         for bill in kwargs["bills"]:
-            # print(vars(bill))
             if bill.date == delivered_date:
-                # other_bill = ImpInterfaceFactura.search(date=delivered_date, bills=kwargs["bills"][i:])
                 return bill
             
         return False
     
-    def data(self):            
-        ...

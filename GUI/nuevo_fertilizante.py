@@ -9,7 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Controller import fertilizer_controller
+from utils import validate_items, show_message, show_pop_up
 
 class Ui_Add_Fertilizer(object):
 
@@ -229,8 +230,30 @@ class Ui_Add_Fertilizer(object):
         self.Label_2.setText(_translate("Add_Fertilizer", "Costo"))
         self.Cancel.setText(_translate("Add_Fertilizer", "Cancelar"))
         self.Add.setText(_translate("Add_Fertilizer", "Agregar"))
+        
+    def create_object(self):
+        name = self.lineEdit.text()
+        ica = self.lineEdit_2.text()
+        freq = self.lineEdit_3.text()
+        last_applic = self.dateEdit.text()
+        value = self.lineEdit_4.text()
+        variables = locals()
+        variables.pop("self")
+        if validate_items(*variables.values()):
+            try:
+                variables["value"] = int(variables["value"])
+                fertilizer_controller.FertilizerController.create(**variables)
+                return True
+            except ValueError:
+                show_pop_up("Error", "El costo debe ser numerico", QtWidgets.QMessageBox.Warning)
+        else:
+            show_pop_up("Error", "Debe ingresar todos los valores", QtWidgets.QMessageBox.Warning)
+            
+        return False
 
     def return_main_menu_window(self, Add_Fertilizer, Add_Product, Main_Menu):
+        if not self.create_object(): return
+        show_message("Se ha guardado el nuevo producto con exito")
         Main_Menu.show()
         Add_Product.close()
         Add_Fertilizer.close()
