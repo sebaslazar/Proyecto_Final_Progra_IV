@@ -34,7 +34,7 @@ class Ui_Add_Client(object):
                                       "}")
         self.Background.setObjectName("Background")
         self.frame = QtWidgets.QFrame(self.Background)
-        self.frame.setGeometry(QtCore.QRect(193, 0, 412, 600))
+        self.frame.setGeometry(QtCore.QRect(193, 0, 412, 700))
         self.frame.setStyleSheet("QLineEdit{\n"
                                  "    background-color: white;\n"
                                  "    font-size: 20px;\n"
@@ -136,7 +136,7 @@ class Ui_Add_Client(object):
         self.Confirm.setObjectName("Confirm")
         self.horizontalLayout_3.addWidget(self.Confirm)
         self.Instruction = QtWidgets.QLabel(self.frame)
-        self.Instruction.setGeometry(QtCore.QRect(0, 40, 411, 71))
+        self.Instruction.setGeometry(QtCore.QRect(0, 40, 411, 100))
         self.Instruction.setObjectName("Instruction")
         Add_Client.setCentralWidget(self.Background)
 
@@ -156,30 +156,42 @@ class Ui_Add_Client(object):
                                             "<html><head/><body><p align=\"center\"><span style=\" "
                                             "font-size:15pt;\">Ingrese la información del cliente</span></p><p "
                                             "align=\"center\"><span style=\" font-size:15pt;\">(Cédula sin puntos, "
-                                            "comas ni guiones)</span></p></body></html>"))
-
-    def open_purchase_product_window(self, Add_Client, Main_Menu):
-        name = self.lineEdit_2.text().strip()
-        dni = self.lineEdit.text().strip()
-        if not validate_items(name, dni):
-            show_pop_up("Administración Tienda Agrícola", "Error al buscar cliente. Debe completar todos los campos.",
+                                            "comas ni guiones)</span></p>"
+                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Si el cliente se encuentra registrado\n"
+                                            "solo ingrese la cedula</span></p></body></html>"))
+        
+    def validate_client(self):
+        name = self.lineEdit_2.text()
+        dni = self.lineEdit.text().strip()  
+        if not validate_items(dni):
+            show_pop_up("Administracion Tienda Agricola", "Error al buscar cliente. Debe completar al menos la cedula",
                         QtWidgets.QMessageBox.Warning)
         elif not validate_dni(dni):
             show_pop_up("Administración Tienda Agrícola", "Número de cédula inválido.",
-                        QtWidgets.QMessageBox.Warning)
-        elif not validate_name(name):
-            show_pop_up("Administración Tienda Agrícola", "Nombre inválido.",
-                        QtWidgets.QMessageBox.Warning)
+                        QtWidgets.QMessageBox.Warning)          
+        
         else:
             client = ClientControler.search(name=name, dni=dni)
             if not client:
-                client = ClientControler.create(name=name, dni=dni)
-                show_message("Se creó el cliente con exito")
-                
-            self.ventana = QtWidgets.QMainWindow()
-            self.ui = Ui_Purchase_Product()
-            self.ui.setupUi(self.ventana, Add_Client, Main_Menu, client)
-            self.ventana.show()
+                if not validate_items(name):
+                    show_pop_up("Administracion Tienda Agricola", "Error al buscar cliente. Debe completar todos los campos",
+                        QtWidgets.QMessageBox.Warning)
+                elif not validate_name(name):
+                    show_pop_up("Administración Tienda Agrícola", "Nombre inválido.", QtWidgets.QMessageBox.Warning)
+                else:
+                    client = ClientControler.create(name=name, dni=dni)
+                    show_message("Se creó el cliente con exito")
+                    
+            return client
+                    
+    def open_purchase_product_window(self, Add_Client, Main_Menu):
+        
+        client = self.validate_client()
+        if not client: return
+        self.ventana = QtWidgets.QMainWindow()
+        self.ui = Ui_Purchase_Product()
+        self.ui.setupUi(self.ventana, Add_Client, Main_Menu, client)
+        self.ventana.show()
 
 
 if __name__ == "__main__":
