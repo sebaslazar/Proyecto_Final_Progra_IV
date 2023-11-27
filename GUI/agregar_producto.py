@@ -223,7 +223,7 @@ class Ui_Add_Product(object):
 
     def open_add_pest_control_window(self, Add_Product, Main_Menu):
         self.ventana = QtWidgets.QMainWindow()
-        self.ui = Ui_Add_Fertilizer()
+        self.ui = Ui_Add_Pest_Control()
         self.ui.setupUi(self.ventana, Add_Product, Main_Menu)
         self.ventana.show()
 

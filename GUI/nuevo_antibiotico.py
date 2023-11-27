@@ -12,6 +12,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Add_Antibiotic(object):
+
+    def back_add_product_window(self, Add_Antibiotic, Add_Product):
+        Add_Product.show()
+        Add_Antibiotic.close()
+
     def setupUi(self, Add_Antibiotic, Add_Product, Main_Menu):
         Add_Antibiotic.setObjectName("Add_Antibiotic")
         Add_Antibiotic.resize(799, 608)
@@ -158,7 +163,7 @@ class Ui_Add_Antibiotic(object):
         self.verticalLayout.addItem(spacerItem5)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.Cancel = QtWidgets.QPushButton(self.frame)
+        self.Cancel = QtWidgets.QPushButton(self.frame, clicked=lambda: self.back_add_product_window(Add_Antibiotic, Add_Product))
         self.Cancel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Cancel.setObjectName("Cancel")
         self.horizontalLayout_3.addWidget(self.Cancel)

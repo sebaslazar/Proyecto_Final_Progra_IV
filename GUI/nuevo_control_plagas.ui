@@ -29,7 +29,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLineEdit{
+     <string notr="true">QLineEdit, QSpinBox{
 	background-color: white;
 	font-size: 20px;
 }
@@ -279,7 +279,7 @@ QPushButton::pressed{
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_5"/>
+         <widget class="QSpinBox" name="spinBox"/>
         </item>
        </layout>
       </widget>

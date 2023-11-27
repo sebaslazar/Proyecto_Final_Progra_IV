@@ -12,6 +12,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Add_Pest_Control(object):
+
+    def back_add_product_window(self, Add_Pest_Control, Add_Product):
+        Add_Product.show()
+        Add_Pest_Control.close()
+
     def setupUi(self, Add_Pest_Control, Add_Product, Main_Menu):
         Add_Pest_Control.setObjectName("Add_Pest_Control")
         Add_Pest_Control.resize(799, 608)
@@ -22,7 +27,7 @@ class Ui_Add_Pest_Control(object):
         self.Background.setObjectName("Background")
         self.frame = QtWidgets.QFrame(self.Background)
         self.frame.setGeometry(QtCore.QRect(120, 0, 586, 601))
-        self.frame.setStyleSheet("QLineEdit{\n"
+        self.frame.setStyleSheet("QLineEdit, QSpinBox{\n"
                                  "    background-color: white;\n"
                                  "    font-size: 20px;\n"
                                  "}\n"
@@ -151,9 +156,9 @@ class Ui_Add_Pest_Control(object):
                                    "}")
         self.Label_3.setObjectName("Label_3")
         self.horizontalLayout_6.addWidget(self.Label_3)
-        self.lineEdit_5 = QtWidgets.QLineEdit(self.Grace_Period)
-        self.lineEdit_5.setObjectName("lineEdit_5")
-        self.horizontalLayout_6.addWidget(self.lineEdit_5)
+        self.spinBox = QtWidgets.QSpinBox(self.Grace_Period)
+        self.spinBox.setObjectName("spinBox")
+        self.horizontalLayout_6.addWidget(self.spinBox)
         self.verticalLayout.addWidget(self.Grace_Period)
         spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem5)
@@ -178,7 +183,7 @@ class Ui_Add_Pest_Control(object):
         self.verticalLayout.addItem(spacerItem6)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.Cancel = QtWidgets.QPushButton(self.frame)
+        self.Cancel = QtWidgets.QPushButton(self.frame, clicked=lambda: self.back_add_product_window(Add_Pest_Control, Add_Product))
         self.Cancel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Cancel.setObjectName("Cancel")
         self.horizontalLayout_3.addWidget(self.Cancel)
@@ -202,9 +207,7 @@ class Ui_Add_Pest_Control(object):
         _translate = QtCore.QCoreApplication.translate
         Add_Pest_Control.setWindowTitle(_translate("Add_Pest_Control", "Agregar Control de Plagas"))
         self.Introduction.setText(_translate("Add_Pest_Control",
-                                             "<html><head/><body><p align=\"center\"><span style=\" "
-                                             "font-size:15pt;\">Ingrese los datos del nuevo control de "
-                                             "plagas</span></p></body></html>"))
+                                             "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese los datos del nuevo control de plagas</span></p></body></html>"))
         self.Label.setText(_translate("Add_Pest_Control", "Nombre"))
         self.Label_5.setText(_translate("Add_Pest_Control", "ICA"))
         self.Label_4.setText(_translate("Add_Pest_Control", "Frecuencia"))

@@ -12,6 +12,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Add_Fertilizer(object):
+
+    def back_add_product_window(self, Add_Fertilizer, Add_Product):
+        Add_Product.show()
+        Add_Fertilizer.close()
+
     def setupUi(self, Add_Fertilizer, Add_Product, Main_Menu):
         Add_Fertilizer.setObjectName("Add_Fertilizer")
         Add_Fertilizer.resize(799, 608)
@@ -190,7 +195,7 @@ class Ui_Add_Fertilizer(object):
         self.verticalLayout.addItem(spacerItem6)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.Cancel = QtWidgets.QPushButton(self.frame)
+        self.Cancel = QtWidgets.QPushButton(self.frame, clicked=lambda: self.back_add_product_window(Add_Fertilizer, Add_Product))
         self.Cancel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Cancel.setObjectName("Cancel")
         self.horizontalLayout_3.addWidget(self.Cancel)
