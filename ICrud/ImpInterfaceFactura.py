@@ -1,4 +1,5 @@
 from Model import Factura, CrudModels, ICrud
+from datetime import date, datetime
 
 class ImpInterfaceFactura(ICrud.ICrud):
     
@@ -11,9 +12,11 @@ class ImpInterfaceFactura(ICrud.ICrud):
             bill.products = product
     
     def search(**kwargs):
-        for bill in CrudModels.CrudModels.clients:
-            print(vars(bill))
-            if vars(bill) == kwargs:
+        delivered_date = kwargs["date"]
+        for bill in kwargs["bills"]:
+            # print(vars(bill))
+            if bill.date == delivered_date:
+                # other_bill = ImpInterfaceFactura.search(date=delivered_date, bills=kwargs["bills"][i:])
                 return bill
             
         return False

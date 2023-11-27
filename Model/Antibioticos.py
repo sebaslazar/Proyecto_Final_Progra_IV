@@ -51,5 +51,6 @@ class Antibioticos:
             "animal_type": self.animal_type,
             "value": self.value
         }
+        return local_vars
         
     __dict__ = property(__dict__)

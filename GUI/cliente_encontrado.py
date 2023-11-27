@@ -9,6 +9,16 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controller import bill_controler
+import locale
+
+try:
+    locale.setlocale(locale.LC_ALL, 'es_CO.UTF-8')
+except:
+    current_info = locale.getdefaultlocale()
+    current_info = f"{current_info[0]}.UTF-8"
+    locale.setlocale(locale.LC_ALL, current_info)
+
 
 
 class Ui_Client_Found(object):
@@ -137,6 +147,7 @@ class Ui_Client_Found(object):
         self.comboBox.setMinimumContentsLength(20)
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
+        self.comboBox.currentIndexChanged.connect(self.set_product_data)
         self.frame_2 = QtWidgets.QFrame(self.frame)
         self.frame_2.setGeometry(QtCore.QRect(70, 200, 661, 81))
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -306,10 +317,10 @@ class Ui_Client_Found(object):
         self.Fertilizers.clicked.connect(self.Table_Pests.hide)  # type: ignore
         self.Pest_Control.clicked.connect(self.Table_Pests.show)  # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Client_Found)
+        self.client = client
         
         self.set_client_data(client)
         self.set_item_text_bill(client.bills)
-        # self.set_product_data(client.bills.products)
 
         Search_Client.hide()
 
@@ -355,36 +366,43 @@ class Ui_Client_Found(object):
         item = self.Table_Pests.horizontalHeaderItem(4)
         item.setText(_translate("Client_Found", "COSTO"))
         
-    """
-    TODO: primero se debe de revisar la parte del comboBox, la parte de las facturas y crear la logica para que muestre los productos de esa factura
-
-    * * En la implementacion de la factura se puede buscar entre las facturas con respecto a la fecha, de tal manera que al hacer un cambio en el comboBox
-    * * de este se obtenga la fecha y se pueda mostrar los productos 
-
-    """
         
-    def set_product_data(self, products):
+    def set_product_data(self):
+        self.clear_content()
+        date = self.comboBox.currentText()
+        bill = bill_controler.ImpInterfaceFactura.search(date=date, bills=self.client.bills)
+        if isinstance(bill, bool): return
+        products = bill.products
         for product in products:
             variables = vars(product)
             _type = variables.get("type")
             table = f"self.Table_{_type}"
             last_row = eval(f"{table}.rowCount()")
-            
             eval(f"{table}.insertRow(last_row)")
-            for i, value in enumerate(variables.values()[1:]):
-                item = QtWidgets.QTableWidgetItem(value)
-                # self.Table_Antibiotics.setItem(last_row, i, item)
+            for i, value in enumerate(list(variables.values())[1:]):
+                item = QtWidgets.QTableWidgetItem(str(value))
                 eval(f"{table}.setItem(last_row, i, item)")
+                
+        self.Total_Value.setText(f"VALOR TOTAL: {locale.currency(bill.total_value())}")
         
     def set_client_data(self, client):
         self.label_2.setText(f"Nombre: {client.name}")
         self.label.setText(f"Cedula: {client.dni}")
         
     def set_item_text_bill(self, bills):
-        for i, bill in enumerate(bills):
-            self.comboBox.setItemText(i, bill.date)
-            # self.set_product_data(bill.products)
-
+        for bill in bills:
+            self.comboBox.addItem(bill.date)
+        
+    def clear_content(self):
+        self.Table_Antibiotics.clearContents()
+        self.Table_Fertilizers.clearContents()
+        self.Table_Pests.clearContents()
+        
+        self.Table_Antibiotics.setRowCount(0)
+        self.Table_Fertilizers.setRowCount(0)
+        self.Table_Pests.setRowCount(0)
+        
+        self.Total_Value.setText(f"VALOR TOTAL:")
 
 if __name__ == "__main__":
     import sys
