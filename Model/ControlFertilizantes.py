@@ -25,9 +25,9 @@ class ControlFertilizantes(producto_control.ProductosControl):
             "type": "Fertilizers",
             "name": self.name,
             "ica": self.ica,
-            "freq": self.ferq,
+            "freq": self.freq,
             "last_applic": self.last_applic,
-            "value": "self.value"
+            "value": self.value
         }
         return local_vars
     

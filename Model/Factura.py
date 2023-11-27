@@ -1,16 +1,15 @@
-from datetime import date
+from datetime import datetime
 
 
 class Factura:
 
     def __init__(self) -> None:
-        self.__date = date.today()
+        self.__date = datetime.now()
         self.__products = []
 
     @property
     def date(self):
-        
-        return date.strftime(self.__date, "%d/%m/%Y")
+        return datetime.strftime(self.__date, "%d/%m/%Y, %H:%M:%S")
 
     @property
     def products(self):

@@ -655,15 +655,18 @@ class Ui_Purchase_Product(object):
 
         self.retranslateUi(Purchase_Product)
         
-        self.Fertilizers.clicked.connect(self.Table_Antibiotics.hide)  # type: ignore
-        self.Pest_Control.clicked.connect(self.Table_Antibiotics.hide)  # type: ignore
-        self.Antibiotics.clicked.connect(self.Table_Antibiotics.show)  # type: ignore
         self.Fertilizers.clicked.connect(self.Table_Fertilizers.show)  # type: ignore
-        self.Antibiotics.clicked.connect(self.Table_Fertilizers.hide)  # type: ignore
-        self.Pest_Control.clicked.connect(self.Table_Fertilizers.hide)  # type: ignore
-        self.Pest_Control.clicked.connect(self.Table_Pest_Control.show)  # type: ignore
+        self.Fertilizers.clicked.connect(self.Table_Antibiotics.hide)  # type: ignore
         self.Fertilizers.clicked.connect(self.Table_Pest_Control.hide)  # type: ignore
+        
+        self.Antibiotics.clicked.connect(self.Table_Antibiotics.show)  # type: ignore
+        self.Antibiotics.clicked.connect(self.Table_Fertilizers.hide)  # type: ignore
         self.Antibiotics.clicked.connect(self.Table_Pest_Control.hide)  # type: ignore
+        
+        self.Pest_Control.clicked.connect(self.Table_Pest_Control.show)  # type: ignore
+        self.Pest_Control.clicked.connect(self.Table_Antibiotics.hide)  # type: ignore
+        self.Pest_Control.clicked.connect(self.Table_Fertilizers.hide)  # type: ignore
+        
         QtCore.QMetaObject.connectSlotsByName(Purchase_Product)
 
         Add_Client.hide()
@@ -828,18 +831,21 @@ class Ui_Purchase_Product(object):
     def add_product(self):
         products_table = {self.Table_Antibiotics: "antibiotic", self.Table_Fertilizers: "fertilizer", self.Table_Pest_Control: "pest"}
         for product_type, name in products_table.items():
-            row = product_type.currentRow()
-            if row != -1:
-                product = {}
-                for column in range(product_type.columnCount()):
-                    item = product_type.item(row, column).text()
-                    column_name = product_type.horizontalHeaderItem(column).text()
-                    product[column_name] = item
-                new_text = f"{product['NOMBRE']}  COSTO: {product['COSTO']}"
-                self.norm_params(product, product_type)
-                product = self.create_product_object(name, product)
-                self.purchased_products.append(product)
-                self.List_Purchased_Products.addItem(new_text)
+            rows = set()
+            for selected_item in product_type.selectedItems():
+                rows.add(selected_item.row())
+            for row in rows:
+                if row != -1:
+                    product = {}
+                    for column in range(product_type.columnCount()):
+                        item = product_type.item(row, column).text()
+                        column_name = product_type.horizontalHeaderItem(column).text()
+                        product[column_name] = item
+                    new_text = f"{product['NOMBRE']}  COSTO: {product['COSTO']}"
+                    self.norm_params(product, product_type)
+                    product = self.create_product_object(name, product)
+                    self.purchased_products.append(product)
+                    self.List_Purchased_Products.addItem(new_text)
             product_type.clearSelection()
             product_type.setCurrentCell(-1, -1)
             
@@ -848,7 +854,7 @@ class Ui_Purchase_Product(object):
         for key, value in params.items():
             product_value = product.get(value)
             del product[value]
-            product[key] = product_value
+            product[key] = float(product_value) if key == "value" else product_value
             
     def create_product_object(self, _type, params):
         product = eval(f"{_type}_controller.{_type.capitalize()}Controller.create(**params)")
