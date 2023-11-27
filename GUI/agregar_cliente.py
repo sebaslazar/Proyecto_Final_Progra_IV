@@ -12,7 +12,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Controller.client_controler import ClientControler 
 from comprar_producto import Ui_Purchase_Product
-from utils import show_pop_up, validate_items, show_message
+from utils import show_pop_up, validate_items, show_message, validate_dni, validate_name
 
 
 class Ui_Add_Client(object):
@@ -162,7 +162,13 @@ class Ui_Add_Client(object):
         name = self.lineEdit_2.text().strip()
         dni = self.lineEdit.text().strip()
         if not validate_items(name, dni):
-            show_pop_up("Administracion Tienda Agricola", "Error al buscar cliente. Debe completar todos los campos",
+            show_pop_up("Administración Tienda Agrícola", "Error al buscar cliente. Debe completar todos los campos.",
+                        QtWidgets.QMessageBox.Warning)
+        elif not validate_dni(dni):
+            show_pop_up("Administración Tienda Agrícola", "Número de cédula ingresado inválido.",
+                        QtWidgets.QMessageBox.Warning)
+        elif not validate_name(name):
+            show_pop_up("Administración Tienda Agrícola", "Nombre ingresado inválido.",
                         QtWidgets.QMessageBox.Warning)
         else:
             client = ClientControler.search(name=name, dni=dni)

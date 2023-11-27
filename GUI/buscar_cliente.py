@@ -146,7 +146,7 @@ class Ui_Search_Client(object):
         dni = self.lineEdit.text().strip()
         client = self.search_client(dni)
         if not client:
-            show_pop_up("Cliente no encontrado", "No se ha podido encontrar un cliente con la identificacion dada", QtWidgets.QMessageBox.Warning)
+            show_pop_up("Cliente no encontrado", "No se ha podido encontrar un cliente con la identificación dada", QtWidgets.QMessageBox.Warning)
             self.back_main_menu_window(Search_Client, Main_Menu)
         else:
             self.ventana = QtWidgets.QMainWindow()
