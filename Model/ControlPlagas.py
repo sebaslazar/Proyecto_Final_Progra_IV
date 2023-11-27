@@ -19,3 +19,16 @@ class ControlPlagas(producto_control.ProductosControl):
         info = f"ICA: {self.ica}\tNOMBRE: {self.name}\tFRECUENCIA: {self.freq}\n"
         info += f"VALOR: {self.value} \PERIODO DE CARENCIA: {self.grace_period}"
         return info
+
+    def __dict__(self):
+        local_vars = {
+            "type": "Pests",
+            "name": self.name,
+            "ica": self.ica,
+            "freq": self.freq,
+            "grace_period": self.grace_period,
+            "value": self.value
+        }
+        return local_vars
+    
+    __dict__ = property(__dict__)

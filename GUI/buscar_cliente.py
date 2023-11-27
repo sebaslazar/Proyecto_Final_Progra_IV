@@ -10,6 +10,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from cliente_encontrado import Ui_Client_Found
+from Controller import client_controler
+from utils import show_pop_up
 
 
 class Ui_Search_Client(object):
@@ -141,11 +143,21 @@ class Ui_Search_Client(object):
                                              "sin puntos, comas o guiones.</span></p></body></html>"))
 
     def open_cliend_found_window(self, Search_Client, Main_Menu):
-        self.ventana = QtWidgets.QMainWindow()
-        self.ui = Ui_Client_Found()
-        self.ui.setupUi(self.ventana, Search_Client, Main_Menu)
-        self.ventana.show()
+        dni = self.lineEdit.text().strip()
+        client = self.search_client(dni)
+        if not client:
+            show_pop_up("Cliente no encontrado", "No se ha podido encontrar un cliente con la identificacion dada", QtWidgets.QMessageBox.Warning)
+            self.back_main_menu_window(Search_Client, Main_Menu)
+        else:
+            self.ventana = QtWidgets.QMainWindow()
+            self.ui = Ui_Client_Found()
+            self.ui.setupUi(self.ventana, Search_Client, Main_Menu, client)
+            self.ventana.show()
 
+    def search_client(self, dni):
+        client = client_controler.ClientControler.search(dni=dni)
+        
+        return client
 
 if __name__ == "__main__":
     import sys

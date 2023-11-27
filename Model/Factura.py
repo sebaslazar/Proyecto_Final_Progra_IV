@@ -5,25 +5,26 @@ class Factura:
 
     def __init__(self) -> None:
         self.__date = date.today()
-        self.__objects = []
+        self.__products = []
 
     @property
     def date(self):
-        return self.__date
+        
+        return date.strftime(self.__date, "%d/%m/%Y")
 
     @property
-    def objects(self):
-        return self.__objects
+    def products(self):
+        return self.__products
 
-    @objects.setter
-    def objects(self, new_object):
-        self.__objects.append(new_object)
+    @products.setter
+    def products(self, new_object):
+        self.__products.append(new_object)
 
     def check_in(self, value):
-        self.objects.append(value)
+        self.products.append(value)
 
     def total_value(self):
         total = 0
-        for article in self.objects:
+        for article in self.products:
             total += article.value
         return total

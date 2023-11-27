@@ -9,17 +9,40 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controller import bill_controler, antibiotic_controller, fertilizer_controller, pest_controller, client_controler
 
+
+# hacer que despues de normalizar cada producto crear el objeto
 
 class Ui_Purchase_Product(object):
+    
+    purchased_products = []
 
     def back_main_menu_window(self, Purchase_Product, Add_Client, Main_Menu):
+        bill = self.create_bill()
+        self.append_products_to_bill(bill)
+        self.append_bill_to_client(self.client, bill)
+        
+        self.purchased_products.clear()
         Main_Menu.show()
         Add_Client.close()
         Purchase_Product.close()
+        
+    def append_products_to_bill(self, bill):
+        bill_controler.BillControler.append_product(bill=bill, products=self.purchased_products)
+        
+    def append_bill_to_client(self, client, bill):
+        client_controler.ClientControler.append_bill(bill=bill, client=client)
 
+    def create_bill(self):
+        bill = bill_controler.BillControler.create()
+        return bill
+        # for product in self.purchased_products:
+            
 
-    def setupUi(self, Purchase_Product, Add_Client, Main_Menu):
+    def setupUi(self, Purchase_Product, Add_Client, Main_Menu, client):
+        
+        self.client = client
         Purchase_Product.setObjectName("Purchase_Product")
         Purchase_Product.resize(920, 643)
         self.Background = QtWidgets.QWidget(Purchase_Product)
@@ -569,7 +592,7 @@ class Ui_Purchase_Product(object):
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
-        self.Add_Products = QtWidgets.QPushButton(self.frame_2)
+        self.Add_Products = QtWidgets.QPushButton(self.frame_2, clicked=lambda: self.add_product())
         self.Add_Products.setGeometry(QtCore.QRect(190, 20, 271, 41))
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -624,8 +647,14 @@ class Ui_Purchase_Product(object):
         self.verticalLayout.addWidget(self.frame_2)
         self.horizontalLayout.addWidget(self.frame)
         Purchase_Product.setCentralWidget(self.Background)
+        
+        self.param_name = {self.Table_Antibiotics: {"name": "NOMBRE", "dose": "DOSIS", "animal_type": "TIPO", "value": "COSTO"},
+                      self.Table_Fertilizers: {"name": "NOMBRE", "ica": "ICA", "freq": "FRECUENCIA", "last_applic": "ULTIMA APLIC.", "value": "COSTO"},
+                      self.Table_Pest_Control: {"name": "NOMBRE", "ica": "ICA", "grace_period": "P. DE CARENCIA", "value": "COSTO", "freq": "FRECUENCIA"}
+                      }
 
         self.retranslateUi(Purchase_Product)
+        
         self.Fertilizers.clicked.connect(self.Table_Antibiotics.hide)  # type: ignore
         self.Pest_Control.clicked.connect(self.Table_Antibiotics.hide)  # type: ignore
         self.Antibiotics.clicked.connect(self.Table_Antibiotics.show)  # type: ignore
@@ -649,7 +678,7 @@ class Ui_Purchase_Product(object):
         __sortingEnabled = self.List_Purchased_Products.isSortingEnabled()
         self.List_Purchased_Products.setSortingEnabled(False)
         item = self.List_Purchased_Products.item(0)
-        item.setText(_translate("Purchase_Product", "Texto de prueba"))
+        # item.setText(_translate("Purchase_Product", "Texto de prueba"))
         self.List_Purchased_Products.setSortingEnabled(__sortingEnabled)
         self.Table_Antibiotics.setSortingEnabled(False)
         item = self.Table_Antibiotics.verticalHeaderItem(0)
@@ -757,7 +786,7 @@ class Ui_Purchase_Product(object):
         item = self.Table_Fertilizers.horizontalHeaderItem(2)
         item.setText(_translate("Purchase_Product", "FRECUENCIA"))
         item = self.Table_Fertilizers.horizontalHeaderItem(3)
-        item.setText(_translate("Purchase_Product", "ÚLTIMA APLIC."))
+        item.setText(_translate("Purchase_Product", "ULTIMA APLIC."))
         item = self.Table_Fertilizers.horizontalHeaderItem(4)
         item.setText(_translate("Purchase_Product", "COSTO"))
         __sortingEnabled = self.Table_Fertilizers.isSortingEnabled()
@@ -795,7 +824,35 @@ class Ui_Purchase_Product(object):
         self.Table_Fertilizers.setSortingEnabled(__sortingEnabled)
         self.Add_Products.setText(_translate("Purchase_Product", "AGREGAR A CARRITO"))
         self.End_Purchase.setText(_translate("Purchase_Product", "FINALIZAR COMPRA  >>"))
-
+        
+    def add_product(self):
+        products_table = {self.Table_Antibiotics: "antibiotic", self.Table_Fertilizers: "fertilizer", self.Table_Pest_Control: "pest"}
+        for product_type, name in products_table.items():
+            row = product_type.currentRow()
+            if row != -1:
+                product = {}
+                for column in range(product_type.columnCount()):
+                    item = product_type.item(row, column).text()
+                    column_name = product_type.horizontalHeaderItem(column).text()
+                    product[column_name] = item
+                new_text = f"{product['NOMBRE']}  COSTO: {product['COSTO']}"
+                self.norm_params(product, product_type)
+                product = self.create_product_object(name, product)
+                self.purchased_products.append(product)
+                self.List_Purchased_Products.addItem(new_text)
+            product_type.clearSelection()
+            product_type.setCurrentCell(-1, -1)
+            
+    def norm_params(self, product, _type):
+        params = self.param_name.get(_type)
+        for key, value in params.items():
+            product_value = product.get(value)
+            del product[value]
+            product[key] = product_value
+            
+    def create_product_object(self, _type, params):
+        product = eval(f"{_type}_controller.{_type.capitalize()}Controller.create(**params)")
+        return product
 
 if __name__ == "__main__":
     import sys

@@ -18,7 +18,7 @@ class Ui_Client_Found(object):
         Search_Client.close()
         Client_Found.close()
 
-    def setupUi(self, Client_Found, Search_Client, Main_Menu):
+    def setupUi(self, Client_Found, Search_Client, Main_Menu, client):
         Client_Found.setObjectName("Client_Found")
         Client_Found.resize(800, 600)
         self.Background = QtWidgets.QWidget(Client_Found)
@@ -260,38 +260,38 @@ class Ui_Client_Found(object):
         self.Table_Fertilizers.horizontalHeader().setMinimumSectionSize(110)
         self.Table_Fertilizers.verticalHeader().setDefaultSectionSize(30)
         self.Table_Fertilizers.verticalHeader().setSortIndicatorShown(False)
-        self.Table_Fertilizers_2 = QtWidgets.QTableWidget(self.frame_5)
-        self.Table_Fertilizers_2.setGeometry(QtCore.QRect(0, 0, 661, 191))
+        self.Table_Pests = QtWidgets.QTableWidget(self.frame_5)
+        self.Table_Pests.setGeometry(QtCore.QRect(0, 0, 661, 191))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Table_Fertilizers_2.sizePolicy().hasHeightForWidth())
-        self.Table_Fertilizers_2.setSizePolicy(sizePolicy)
-        self.Table_Fertilizers_2.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.Table_Fertilizers_2.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
-        self.Table_Fertilizers_2.setProperty("showDropIndicator", False)
-        self.Table_Fertilizers_2.setDragDropOverwriteMode(False)
-        self.Table_Fertilizers_2.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
-        self.Table_Fertilizers_2.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.Table_Fertilizers_2.setShowGrid(True)
-        self.Table_Fertilizers_2.setWordWrap(False)
-        self.Table_Fertilizers_2.setObjectName("Table_Fertilizers_2")
-        self.Table_Fertilizers_2.setColumnCount(5)
-        self.Table_Fertilizers_2.setRowCount(0)
+        sizePolicy.setHeightForWidth(self.Table_Pests.sizePolicy().hasHeightForWidth())
+        self.Table_Pests.setSizePolicy(sizePolicy)
+        self.Table_Pests.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.Table_Pests.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.Table_Pests.setProperty("showDropIndicator", False)
+        self.Table_Pests.setDragDropOverwriteMode(False)
+        self.Table_Pests.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
+        self.Table_Pests.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.Table_Pests.setShowGrid(True)
+        self.Table_Pests.setWordWrap(False)
+        self.Table_Pests.setObjectName("Table_Fertilizers_2")
+        self.Table_Pests.setColumnCount(5)
+        self.Table_Pests.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.Table_Fertilizers_2.setHorizontalHeaderItem(0, item)
+        self.Table_Pests.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.Table_Fertilizers_2.setHorizontalHeaderItem(1, item)
+        self.Table_Pests.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.Table_Fertilizers_2.setHorizontalHeaderItem(2, item)
+        self.Table_Pests.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.Table_Fertilizers_2.setHorizontalHeaderItem(3, item)
+        self.Table_Pests.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.Table_Fertilizers_2.setHorizontalHeaderItem(4, item)
-        self.Table_Fertilizers_2.horizontalHeader().setDefaultSectionSize(131)
-        self.Table_Fertilizers_2.horizontalHeader().setMinimumSectionSize(110)
-        self.Table_Fertilizers_2.verticalHeader().setDefaultSectionSize(30)
-        self.Table_Fertilizers_2.verticalHeader().setSortIndicatorShown(False)
+        self.Table_Pests.setHorizontalHeaderItem(4, item)
+        self.Table_Pests.horizontalHeader().setDefaultSectionSize(131)
+        self.Table_Pests.horizontalHeader().setMinimumSectionSize(110)
+        self.Table_Pests.verticalHeader().setDefaultSectionSize(30)
+        self.Table_Pests.verticalHeader().setSortIndicatorShown(False)
         self.verticalLayout.addWidget(self.frame)
         Client_Found.setCentralWidget(self.Background)
 
@@ -302,10 +302,14 @@ class Ui_Client_Found(object):
         self.Antibiotics.clicked.connect(self.Table_Fertilizers.hide)  # type: ignore
         self.Fertilizers.clicked.connect(self.Table_Fertilizers.show)  # type: ignore
         self.Pest_Control.clicked.connect(self.Table_Fertilizers.hide)  # type: ignore
-        self.Antibiotics.clicked.connect(self.Table_Fertilizers_2.hide)  # type: ignore
-        self.Fertilizers.clicked.connect(self.Table_Fertilizers_2.hide)  # type: ignore
-        self.Pest_Control.clicked.connect(self.Table_Fertilizers_2.show)  # type: ignore
+        self.Antibiotics.clicked.connect(self.Table_Pests.hide)  # type: ignore
+        self.Fertilizers.clicked.connect(self.Table_Pests.hide)  # type: ignore
+        self.Pest_Control.clicked.connect(self.Table_Pests.show)  # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Client_Found)
+        
+        self.set_client_data(client)
+        self.set_item_text_bill(client.bills)
+        # self.set_product_data(client.bills.products)
 
         Search_Client.hide()
 
@@ -328,6 +332,7 @@ class Ui_Client_Found(object):
         item.setText(_translate("Client_Found", "TIPO"))
         item = self.Table_Antibiotics.horizontalHeaderItem(3)
         item.setText(_translate("Client_Found", "COSTO"))
+        
         item = self.Table_Fertilizers.horizontalHeaderItem(0)
         item.setText(_translate("Client_Found", "NOMBRE"))
         item = self.Table_Fertilizers.horizontalHeaderItem(1)
@@ -338,16 +343,47 @@ class Ui_Client_Found(object):
         item.setText(_translate("Client_Found", "ÚLTIMA APLICACIÓN"))
         item = self.Table_Fertilizers.horizontalHeaderItem(4)
         item.setText(_translate("Client_Found", "COSTO"))
-        item = self.Table_Fertilizers_2.horizontalHeaderItem(0)
+        
+        item = self.Table_Pests.horizontalHeaderItem(0)
         item.setText(_translate("Client_Found", "NOMBRE"))
-        item = self.Table_Fertilizers_2.horizontalHeaderItem(1)
+        item = self.Table_Pests.horizontalHeaderItem(1)
         item.setText(_translate("Client_Found", "ICA"))
-        item = self.Table_Fertilizers_2.horizontalHeaderItem(2)
+        item = self.Table_Pests.horizontalHeaderItem(2)
         item.setText(_translate("Client_Found", "FRECUENCIA"))
-        item = self.Table_Fertilizers_2.horizontalHeaderItem(3)
+        item = self.Table_Pests.horizontalHeaderItem(3)
         item.setText(_translate("Client_Found", "PERÍODO DE CARENCIA"))
-        item = self.Table_Fertilizers_2.horizontalHeaderItem(4)
+        item = self.Table_Pests.horizontalHeaderItem(4)
         item.setText(_translate("Client_Found", "COSTO"))
+        
+    """
+    TODO: primero se debe de revisar la parte del comboBox, la parte de las facturas y crear la logica para que muestre los productos de esa factura
+
+    * * En la implementacion de la factura se puede buscar entre las facturas con respecto a la fecha, de tal manera que al hacer un cambio en el comboBox
+    * * de este se obtenga la fecha y se pueda mostrar los productos 
+
+    """
+        
+    def set_product_data(self, products):
+        for product in products:
+            variables = vars(product)
+            _type = variables.get("type")
+            table = f"self.Table_{_type}"
+            last_row = eval(f"{table}.rowCount()")
+            
+            eval(f"{table}.insertRow(last_row)")
+            for i, value in enumerate(variables.values()[1:]):
+                item = QtWidgets.QTableWidgetItem(value)
+                # self.Table_Antibiotics.setItem(last_row, i, item)
+                eval(f"{table}.setItem(last_row, i, item)")
+        
+    def set_client_data(self, client):
+        self.label_2.setText(f"Nombre: {client.name}")
+        self.label.setText(f"Cedula: {client.dni}")
+        
+    def set_item_text_bill(self, bills):
+        for i, bill in enumerate(bills):
+            self.comboBox.setItemText(i, bill.date)
+            # self.set_product_data(bill.products)
 
 
 if __name__ == "__main__":

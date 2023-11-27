@@ -1,10 +1,12 @@
-from Model import Antibioticos
-from ICrud import ICrud
+from Model import Antibioticos, ICrud
 
-class ImpInterfaceAntibiotico(ICrud):
+class ImpInterfaceAntibiotico(ICrud.ICrud):
     
-    def create(self, **kwargs):
+    def create(**kwargs):
         return Antibioticos.Antibioticos(**kwargs)
+    
+    def search(**kwargs):
+        ...
     
     def data(self):            
         ...

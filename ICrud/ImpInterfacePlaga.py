@@ -1,10 +1,9 @@
-from Model import ControlPlagas
-from ICrud import ICrud
+from Model import ControlPlagas, ICrud
 
-class ImpInterfacePlaga(ICrud):
+class ImpInterfacePlaga(ICrud.ICrud):
     
-    def create(self, **kwargs):
+    def create(**kwargs):
         return ControlPlagas.ControlPlagas(**kwargs)
     
-    def data(self):            
+    def data(**kwargs):            
         ...

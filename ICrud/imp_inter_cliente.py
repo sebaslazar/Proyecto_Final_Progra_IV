@@ -4,12 +4,17 @@ class ImpInterfaceCliente(ICrud.ICrud):
     
     def create(**kwargs):
         new_client = cliente.Cliente(**kwargs)
-        CrudModels.CrudModels.clients = new_client
+        CrudModels.CrudModels.clients.append(new_client)
+        return new_client
+        # print(CrudModels.CrudModels.clients)
+        
+    def append_bill(**kwargs):
+        client = kwargs["client"]
+        client.bills = kwargs["bill"]
         
     def search(**kwargs):
         for client in CrudModels.CrudModels.clients:
-            print(vars(client))
-            if vars(client) == kwargs:
+            if client.dni == kwargs["dni"]:
                 return client
             
         return False

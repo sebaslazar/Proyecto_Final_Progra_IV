@@ -19,3 +19,16 @@ class ControlFertilizantes(producto_control.ProductosControl):
         info = f"ICA: {self.ica}\tNOMBRE: {self.name}\tFRECUENCIA: {self.freq}\n"
         info += f"VALOR: {self.value}\tULTIMA APLICACION: {self.last_applic}"
         return info
+
+    def __dict__(self):
+        local_vars = {
+            "type": "Fertilizers",
+            "name": self.name,
+            "ica": self.ica,
+            "freq": self.ferq,
+            "last_applic": self.last_applic,
+            "value": "self.value"
+        }
+        return local_vars
+    
+    __dict__ = property(__dict__)

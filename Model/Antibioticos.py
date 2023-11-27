@@ -42,3 +42,14 @@ class Antibioticos:
         info = f"NOMBRE: {self.name}\tDOSIS: {self.dose}\n"
         info += f"VALOR: {self.value}\tTIPO DE ANIMAL: {self.animal_type}"
         return info
+    
+    def __dict__(self):
+        local_vars = {
+            "type": "Antibiotics",
+            "name": self.name,
+            "dose": self.dose,
+            "animal_type": self.animal_type,
+            "value": self.value
+        }
+        
+    __dict__ = property(__dict__)
