@@ -12,64 +12,64 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Add_Fertilizer(object):
-    def setupUi(self, Add_Fertilizer):
+    def setupUi(self, Add_Fertilizer, Add_Product, Main_Menu):
         Add_Fertilizer.setObjectName("Add_Fertilizer")
         Add_Fertilizer.resize(799, 608)
         self.Background = QtWidgets.QWidget(Add_Fertilizer)
         self.Background.setStyleSheet("QWidget{\n"
-"    background-color: rgb(236, 236, 236)\n"
-"}")
+                                      "    background-color: rgb(236, 236, 236)\n"
+                                      "}")
         self.Background.setObjectName("Background")
         self.frame = QtWidgets.QFrame(self.Background)
         self.frame.setGeometry(QtCore.QRect(133, 0, 561, 601))
         self.frame.setStyleSheet("QLineEdit{\n"
-"    background-color: white;\n"
-"    font-size: 20px;\n"
-"}\n"
-"\n"
-"QLabel{\n"
-"    font-size: 20px;\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"    font-size: 20px;\n"
-"    border: 2px solid;\n"
-"    border-radius: 6px;\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    color: rgb(225, 225, 225);\n"
-"    border-radius: 0;\n"
-"}\n"
-"\n"
-"#Add{\n"
-"    background-color: rgb(87, 255, 75);\n"
-"    border-color: rgb(0, 172, 0);\n"
-"}\n"
-"\n"
-"#Add::hover{\n"
-"    background-color: rgb(56, 247, 42);\n"
-"}\n"
-"\n"
-"#Add::pressed{\n"
-"    background-color: rgb(0, 172, 0);\n"
-"    border-color: rgb(87, 255, 75)\n"
-"}\n"
-"\n"
-"#Cancel{\n"
-"    background-color: rgb(242, 90, 90);\n"
-"    border-color: rgb(255, 0, 0)\n"
-"}\n"
-"\n"
-"#Cancel::hover{\n"
-"    background-color: rgb(237, 50, 50);\n"
-"    border-color: rgb(255, 0, 0)\n"
-"}\n"
-"\n"
-"#Cancel::pressed{\n"
-"    background-color: rgb(255, 0, 0);\n"
-"    border-color: rgb(255, 101, 101)\n"
-"}")
+                                 "    background-color: white;\n"
+                                 "    font-size: 20px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QLabel{\n"
+                                 "    font-size: 20px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton{\n"
+                                 "    font-size: 20px;\n"
+                                 "    border: 2px solid;\n"
+                                 "    border-radius: 6px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton::pressed{\n"
+                                 "    color: rgb(225, 225, 225);\n"
+                                 "    border-radius: 0;\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Add{\n"
+                                 "    background-color: rgb(87, 255, 75);\n"
+                                 "    border-color: rgb(0, 172, 0);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Add::hover{\n"
+                                 "    background-color: rgb(56, 247, 42);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Add::pressed{\n"
+                                 "    background-color: rgb(0, 172, 0);\n"
+                                 "    border-color: rgb(87, 255, 75)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel{\n"
+                                 "    background-color: rgb(242, 90, 90);\n"
+                                 "    border-color: rgb(255, 0, 0)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel::hover{\n"
+                                 "    background-color: rgb(237, 50, 50);\n"
+                                 "    border-color: rgb(255, 0, 0)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel::pressed{\n"
+                                 "    background-color: rgb(255, 0, 0);\n"
+                                 "    border-color: rgb(255, 101, 101)\n"
+                                 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -92,8 +92,8 @@ class Ui_Add_Fertilizer(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.Label = QtWidgets.QLabel(self.Name)
         self.Label.setStyleSheet("QLabel{\n"
-"    margin-right: 88px;\n"
-"}")
+                                 "    margin-right: 88px;\n"
+                                 "}")
         self.Label.setObjectName("Label")
         self.horizontalLayout_2.addWidget(self.Label)
         self.lineEdit = QtWidgets.QLineEdit(self.Name)
@@ -111,8 +111,8 @@ class Ui_Add_Fertilizer(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.Label_5 = QtWidgets.QLabel(self.ICA)
         self.Label_5.setStyleSheet("QLabel{\n"
-"    margin-right: 127px\n"
-"}")
+                                   "    margin-right: 127px\n"
+                                   "}")
         self.Label_5.setObjectName("Label_5")
         self.horizontalLayout.addWidget(self.Label_5)
         self.lineEdit_2 = QtWidgets.QLineEdit(self.ICA)
@@ -129,8 +129,8 @@ class Ui_Add_Fertilizer(object):
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.Label_4 = QtWidgets.QLabel(self.Frequency)
         self.Label_4.setStyleSheet("QLabel{\n"
-"    margin-right: 63px\n"
-"}")
+                                   "    margin-right: 63px\n"
+                                   "}")
         self.Label_4.setObjectName("Label_4")
         self.horizontalLayout_4.addWidget(self.Label_4)
         self.lineEdit_3 = QtWidgets.QLineEdit(self.Frequency)
@@ -147,8 +147,8 @@ class Ui_Add_Fertilizer(object):
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.Label_3 = QtWidgets.QLabel(self.Last_Application)
         self.Label_3.setStyleSheet("QLabel{\n"
-"    margin-right: 5\n"
-"}")
+                                   "    margin-right: 5\n"
+                                   "}")
         self.Label_3.setObjectName("Label_3")
         self.horizontalLayout_6.addWidget(self.Label_3)
         self.dateEdit = QtWidgets.QDateEdit(self.Last_Application)
@@ -158,8 +158,8 @@ class Ui_Add_Fertilizer(object):
         sizePolicy.setHeightForWidth(self.dateEdit.sizePolicy().hasHeightForWidth())
         self.dateEdit.setSizePolicy(sizePolicy)
         self.dateEdit.setStyleSheet("QDateEdit{\n"
-"    background-color: white;\n"
-"}")
+                                    "    background-color: white;\n"
+                                    "}")
         self.dateEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.dateEdit.setDateTime(QtCore.QDateTime(QtCore.QDate(2023, 1, 1), QtCore.QTime(0, 0, 0)))
         self.dateEdit.setCalendarPopup(True)
@@ -177,8 +177,8 @@ class Ui_Add_Fertilizer(object):
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.Label_2 = QtWidgets.QLabel(self.Value)
         self.Label_2.setStyleSheet("QLabel{\n"
-"    margin-right: 108px\n"
-"}")
+                                   "    margin-right: 108px\n"
+                                   "}")
         self.Label_2.setObjectName("Label_2")
         self.horizontalLayout_5.addWidget(self.Label_2)
         self.lineEdit_4 = QtWidgets.QLineEdit(self.Value)
@@ -205,13 +205,18 @@ class Ui_Add_Fertilizer(object):
         self.verticalLayout.addItem(spacerItem8)
         Add_Fertilizer.setCentralWidget(self.Background)
 
+        Add_Product.hide()
+
         self.retranslateUi(Add_Fertilizer)
         QtCore.QMetaObject.connectSlotsByName(Add_Fertilizer)
 
     def retranslateUi(self, Add_Fertilizer):
         _translate = QtCore.QCoreApplication.translate
         Add_Fertilizer.setWindowTitle(_translate("Add_Fertilizer", "Agregar Fertilizante"))
-        self.Introduction.setText(_translate("Add_Fertilizer", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese los datos del nuevo fertilizante</span></p></body></html>"))
+        self.Introduction.setText(_translate("Add_Fertilizer",
+                                             "<html><head/><body><p align=\"center\"><span style=\" "
+                                             "font-size:15pt;\">Ingrese los datos del nuevo "
+                                             "fertilizante</span></p></body></html>"))
         self.Label.setText(_translate("Add_Fertilizer", "Nombre"))
         self.Label_5.setText(_translate("Add_Fertilizer", "ICA"))
         self.Label_4.setText(_translate("Add_Fertilizer", "Frecuencia"))
@@ -223,6 +228,7 @@ class Ui_Add_Fertilizer(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Add_Fertilizer = QtWidgets.QMainWindow()
     ui = Ui_Add_Fertilizer()

@@ -156,7 +156,7 @@ class Ui_Main_Menu(object):
     def open_add_product_window(self):
         self.ventana = QtWidgets.QMainWindow()
         self.ui = Ui_Add_Product()
-        self.ui.setupUi(self.ventana)
+        self.ui.setupUi(self.ventana, Main_Menu)
         self.ventana.show()
 
 

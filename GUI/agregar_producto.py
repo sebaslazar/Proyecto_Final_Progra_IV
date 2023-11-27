@@ -9,11 +9,18 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from nuevo_antibiotico import Ui_Add_Antibiotic
+from nuevo_fertilizante import Ui_Add_Fertilizer
+from nuevo_control_plagas import Ui_Add_Pest_Control
 
 
 class Ui_Add_Product(object):
 
-    def setupUi(self, Add_Product):
+    def back_main_menu_window(self, Add_Product, Main_Menu):
+        Main_Menu.show()
+        Add_Product.close()
+
+    def setupUi(self, Add_Product, Main_Menu):
         Add_Product.setObjectName("Add_Product")
         Add_Product.resize(645, 694)
         Add_Product.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
@@ -124,7 +131,7 @@ class Ui_Add_Product(object):
         self.Introduction.setFont(font)
         self.Introduction.setObjectName("Introduction")
         self.verticalLayout.addWidget(self.Introduction)
-        self.Antibiotics = QtWidgets.QPushButton(self.frame)
+        self.Antibiotics = QtWidgets.QPushButton(self.frame, clicked=lambda: self.open_add_antibiotic_window(Add_Product,Main_Menu))
         self.Antibiotics.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -143,7 +150,7 @@ class Ui_Add_Product(object):
         self.verticalLayout.addWidget(self.Antibiotics)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
-        self.Fertilizers = QtWidgets.QPushButton(self.frame)
+        self.Fertilizers = QtWidgets.QPushButton(self.frame, clicked=lambda: self.open_add_fertilizer_window(Add_Product, Main_Menu))
         font = QtGui.QFont()
         font.setPointSize(28)
         self.Fertilizers.setFont(font)
@@ -153,7 +160,7 @@ class Ui_Add_Product(object):
         self.verticalLayout.addWidget(self.Fertilizers)
         spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem1)
-        self.Pest_Control = QtWidgets.QPushButton(self.frame)
+        self.Pest_Control = QtWidgets.QPushButton(self.frame, clicked=lambda: self.open_add_pest_control_window(Add_Product, Main_Menu))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -175,7 +182,7 @@ class Ui_Add_Product(object):
         self.Pest_Control.setFlat(False)
         self.Pest_Control.setObjectName("Pest_Control")
         self.verticalLayout.addWidget(self.Pest_Control)
-        self.Back_Button = QtWidgets.QPushButton(self.frame)
+        self.Back_Button = QtWidgets.QPushButton(self.frame, clicked=lambda: self.back_main_menu_window(Add_Product, Main_Menu))
         font = QtGui.QFont()
         font.setPointSize(28)
         self.Back_Button.setFont(font)
@@ -183,6 +190,8 @@ class Ui_Add_Product(object):
         self.verticalLayout.addWidget(self.Back_Button)
         self.verticalLayout_2.addWidget(self.frame, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
         Add_Product.setCentralWidget(self.centralwidget)
+
+        Main_Menu.hide()
 
         self.retranslateUi(Add_Product)
         QtCore.QMetaObject.connectSlotsByName(Add_Product)
@@ -199,6 +208,24 @@ class Ui_Add_Product(object):
         self.Fertilizers.setText(_translate("Add_Product", "FERTILIZANTE"))
         self.Pest_Control.setText(_translate("Add_Product", "CONTROL DE PLAGAS"))
         self.Back_Button.setText(_translate("Add_Product", "RETROCEDER"))
+
+    def open_add_antibiotic_window(self, Add_Product, Main_Menu):
+        self.ventana = QtWidgets.QMainWindow()
+        self.ui = Ui_Add_Antibiotic()
+        self.ui.setupUi(self.ventana, Add_Product, Main_Menu)
+        self.ventana.show()
+
+    def open_add_fertilizer_window(self, Add_Product, Main_Menu):
+        self.ventana = QtWidgets.QMainWindow()
+        self.ui = Ui_Add_Fertilizer()
+        self.ui.setupUi(self.ventana, Add_Product, Main_Menu)
+        self.ventana.show()
+
+    def open_add_pest_control_window(self, Add_Product, Main_Menu):
+        self.ventana = QtWidgets.QMainWindow()
+        self.ui = Ui_Add_Fertilizer()
+        self.ui.setupUi(self.ventana, Add_Product, Main_Menu)
+        self.ventana.show()
 
 
 if __name__ == "__main__":

@@ -12,64 +12,64 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Add_Antibiotic(object):
-    def setupUi(self, Add_Antibiotic):
+    def setupUi(self, Add_Antibiotic, Add_Product, Main_Menu):
         Add_Antibiotic.setObjectName("Add_Antibiotic")
         Add_Antibiotic.resize(799, 608)
         self.Background = QtWidgets.QWidget(Add_Antibiotic)
         self.Background.setStyleSheet("QWidget{\n"
-"    background-color: rgb(236, 236, 236)\n"
-"}")
+                                      "    background-color: rgb(236, 236, 236)\n"
+                                      "}")
         self.Background.setObjectName("Background")
         self.frame = QtWidgets.QFrame(self.Background)
         self.frame.setGeometry(QtCore.QRect(133, 0, 521, 601))
         self.frame.setStyleSheet("QLineEdit{\n"
-"    background-color: white;\n"
-"    font-size: 20px;\n"
-"}\n"
-"\n"
-"QLabel{\n"
-"    font-size: 20px;\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"    font-size: 20px;\n"
-"    border: 2px solid;\n"
-"    border-radius: 6px;\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    color: rgb(225, 225, 225);\n"
-"    border-radius: 0;\n"
-"}\n"
-"\n"
-"#Add{\n"
-"    background-color: rgb(87, 255, 75);\n"
-"    border-color: rgb(0, 172, 0);\n"
-"}\n"
-"\n"
-"#Add::hover{\n"
-"    background-color: rgb(56, 247, 42);\n"
-"}\n"
-"\n"
-"#Add::pressed{\n"
-"    background-color: rgb(0, 172, 0);\n"
-"    border-color: rgb(87, 255, 75)\n"
-"}\n"
-"\n"
-"#Cancel{\n"
-"    background-color: rgb(242, 90, 90);\n"
-"    border-color: rgb(255, 0, 0)\n"
-"}\n"
-"\n"
-"#Cancel::hover{\n"
-"    background-color: rgb(237, 50, 50);\n"
-"    border-color: rgb(255, 0, 0)\n"
-"}\n"
-"\n"
-"#Cancel::pressed{\n"
-"    background-color: rgb(255, 0, 0);\n"
-"    border-color: rgb(255, 101, 101)\n"
-"}")
+                                 "    background-color: white;\n"
+                                 "    font-size: 20px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QLabel{\n"
+                                 "    font-size: 20px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton{\n"
+                                 "    font-size: 20px;\n"
+                                 "    border: 2px solid;\n"
+                                 "    border-radius: 6px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton::pressed{\n"
+                                 "    color: rgb(225, 225, 225);\n"
+                                 "    border-radius: 0;\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Add{\n"
+                                 "    background-color: rgb(87, 255, 75);\n"
+                                 "    border-color: rgb(0, 172, 0);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Add::hover{\n"
+                                 "    background-color: rgb(56, 247, 42);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Add::pressed{\n"
+                                 "    background-color: rgb(0, 172, 0);\n"
+                                 "    border-color: rgb(87, 255, 75)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel{\n"
+                                 "    background-color: rgb(242, 90, 90);\n"
+                                 "    border-color: rgb(255, 0, 0)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel::hover{\n"
+                                 "    background-color: rgb(237, 50, 50);\n"
+                                 "    border-color: rgb(255, 0, 0)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel::pressed{\n"
+                                 "    background-color: rgb(255, 0, 0);\n"
+                                 "    border-color: rgb(255, 101, 101)\n"
+                                 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -90,8 +90,8 @@ class Ui_Add_Antibiotic(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.Name_4 = QtWidgets.QLabel(self.Name)
         self.Name_4.setStyleSheet("QLabel{\n"
-"    margin-right: 74px;\n"
-"}")
+                                  "    margin-right: 74px;\n"
+                                  "}")
         self.Name_4.setObjectName("Name_4")
         self.horizontalLayout_2.addWidget(self.Name_4)
         self.lineEdit = QtWidgets.QLineEdit(self.Name)
@@ -109,8 +109,8 @@ class Ui_Add_Antibiotic(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.Label = QtWidgets.QLabel(self.Dose)
         self.Label.setStyleSheet("QLabel{\n"
-"    margin-right: 96px\n"
-"}")
+                                 "    margin-right: 96px\n"
+                                 "}")
         self.Label.setObjectName("Label")
         self.horizontalLayout.addWidget(self.Label)
         self.lineEdit_2 = QtWidgets.QLineEdit(self.Dose)
@@ -127,8 +127,8 @@ class Ui_Add_Antibiotic(object):
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.Label_2 = QtWidgets.QLabel(self.Type_of_Animal)
         self.Label_2.setStyleSheet("QLabel{\n"
-"    margin-right: 10px\n"
-"}")
+                                   "    margin-right: 10px\n"
+                                   "}")
         self.Label_2.setObjectName("Label_2")
         self.horizontalLayout_4.addWidget(self.Label_2)
         self.lineEdit_3 = QtWidgets.QLineEdit(self.Type_of_Animal)
@@ -145,8 +145,8 @@ class Ui_Add_Antibiotic(object):
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.Label_3 = QtWidgets.QLabel(self.Value)
         self.Label_3.setStyleSheet("QLabel{\n"
-"    margin-right: 94px\n"
-"}")
+                                   "    margin-right: 94px\n"
+                                   "}")
         self.Label_3.setObjectName("Label_3")
         self.horizontalLayout_5.addWidget(self.Label_3)
         self.lineEdit_4 = QtWidgets.QLineEdit(self.Value)
@@ -173,13 +173,18 @@ class Ui_Add_Antibiotic(object):
         self.verticalLayout.addItem(spacerItem7)
         Add_Antibiotic.setCentralWidget(self.Background)
 
+        Add_Product.hide()
+
         self.retranslateUi(Add_Antibiotic)
         QtCore.QMetaObject.connectSlotsByName(Add_Antibiotic)
 
     def retranslateUi(self, Add_Antibiotic):
         _translate = QtCore.QCoreApplication.translate
         Add_Antibiotic.setWindowTitle(_translate("Add_Antibiotic", "Agregar Antibiótico"))
-        self.Introduction.setText(_translate("Add_Antibiotic", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese los datos del nuevo antibiótico</span></p></body></html>"))
+        self.Introduction.setText(_translate("Add_Antibiotic",
+                                             "<html><head/><body><p align=\"center\"><span style=\" "
+                                             "font-size:15pt;\">Ingrese los datos del nuevo "
+                                             "antibiótico</span></p></body></html>"))
         self.Name_4.setText(_translate("Add_Antibiotic", "Nombre"))
         self.Label.setText(_translate("Add_Antibiotic", "Dosis"))
         self.Label_2.setText(_translate("Add_Antibiotic", "Tipo de Animal"))
@@ -190,6 +195,7 @@ class Ui_Add_Antibiotic(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Add_Antibiotic = QtWidgets.QMainWindow()
     ui = Ui_Add_Antibiotic()

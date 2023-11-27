@@ -12,64 +12,64 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Add_Pest_Control(object):
-    def setupUi(self, Add_Pest_Control):
+    def setupUi(self, Add_Pest_Control, Add_Product, Main_Menu):
         Add_Pest_Control.setObjectName("Add_Pest_Control")
         Add_Pest_Control.resize(799, 608)
         self.Background = QtWidgets.QWidget(Add_Pest_Control)
         self.Background.setStyleSheet("QWidget{\n"
-"    background-color: rgb(236, 236, 236)\n"
-"}")
+                                      "    background-color: rgb(236, 236, 236)\n"
+                                      "}")
         self.Background.setObjectName("Background")
         self.frame = QtWidgets.QFrame(self.Background)
         self.frame.setGeometry(QtCore.QRect(120, 0, 586, 601))
         self.frame.setStyleSheet("QLineEdit{\n"
-"    background-color: white;\n"
-"    font-size: 20px;\n"
-"}\n"
-"\n"
-"QLabel{\n"
-"    font-size: 20px;\n"
-"}\n"
-"\n"
-"QPushButton{\n"
-"    font-size: 20px;\n"
-"    border: 2px solid;\n"
-"    border-radius: 6px;\n"
-"}\n"
-"\n"
-"QPushButton::pressed{\n"
-"    color: rgb(225, 225, 225);\n"
-"    border-radius: 0;\n"
-"}\n"
-"\n"
-"#Add{\n"
-"    background-color: rgb(87, 255, 75);\n"
-"    border-color: rgb(0, 172, 0);\n"
-"}\n"
-"\n"
-"#Add::hover{\n"
-"    background-color: rgb(56, 247, 42);\n"
-"}\n"
-"\n"
-"#Add::pressed{\n"
-"    background-color: rgb(0, 172, 0);\n"
-"    border-color: rgb(87, 255, 75)\n"
-"}\n"
-"\n"
-"#Cancel{\n"
-"    background-color: rgb(242, 90, 90);\n"
-"    border-color: rgb(255, 0, 0)\n"
-"}\n"
-"\n"
-"#Cancel::hover{\n"
-"    background-color: rgb(237, 50, 50);\n"
-"    border-color: rgb(255, 0, 0)\n"
-"}\n"
-"\n"
-"#Cancel::pressed{\n"
-"    background-color: rgb(255, 0, 0);\n"
-"    border-color: rgb(255, 101, 101)\n"
-"}")
+                                 "    background-color: white;\n"
+                                 "    font-size: 20px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QLabel{\n"
+                                 "    font-size: 20px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton{\n"
+                                 "    font-size: 20px;\n"
+                                 "    border: 2px solid;\n"
+                                 "    border-radius: 6px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton::pressed{\n"
+                                 "    color: rgb(225, 225, 225);\n"
+                                 "    border-radius: 0;\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Add{\n"
+                                 "    background-color: rgb(87, 255, 75);\n"
+                                 "    border-color: rgb(0, 172, 0);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Add::hover{\n"
+                                 "    background-color: rgb(56, 247, 42);\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Add::pressed{\n"
+                                 "    background-color: rgb(0, 172, 0);\n"
+                                 "    border-color: rgb(87, 255, 75)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel{\n"
+                                 "    background-color: rgb(242, 90, 90);\n"
+                                 "    border-color: rgb(255, 0, 0)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel::hover{\n"
+                                 "    background-color: rgb(237, 50, 50);\n"
+                                 "    border-color: rgb(255, 0, 0)\n"
+                                 "}\n"
+                                 "\n"
+                                 "#Cancel::pressed{\n"
+                                 "    background-color: rgb(255, 0, 0);\n"
+                                 "    border-color: rgb(255, 101, 101)\n"
+                                 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -92,8 +92,8 @@ class Ui_Add_Pest_Control(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.Label = QtWidgets.QLabel(self.Name)
         self.Label.setStyleSheet("QLabel{\n"
-"    margin-right: 113px;\n"
-"}")
+                                 "    margin-right: 113px;\n"
+                                 "}")
         self.Label.setObjectName("Label")
         self.horizontalLayout_2.addWidget(self.Label)
         self.lineEdit = QtWidgets.QLineEdit(self.Name)
@@ -111,8 +111,8 @@ class Ui_Add_Pest_Control(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.Label_5 = QtWidgets.QLabel(self.ICA)
         self.Label_5.setStyleSheet("QLabel{\n"
-"    margin-right: 152px\n"
-"}")
+                                   "    margin-right: 152px\n"
+                                   "}")
         self.Label_5.setObjectName("Label_5")
         self.horizontalLayout.addWidget(self.Label_5)
         self.lineEdit_2 = QtWidgets.QLineEdit(self.ICA)
@@ -129,8 +129,8 @@ class Ui_Add_Pest_Control(object):
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.Label_4 = QtWidgets.QLabel(self.Frequency)
         self.Label_4.setStyleSheet("QLabel{\n"
-"    margin-right: 88px\n"
-"}")
+                                   "    margin-right: 88px\n"
+                                   "}")
         self.Label_4.setObjectName("Label_4")
         self.horizontalLayout_4.addWidget(self.Label_4)
         self.lineEdit_3 = QtWidgets.QLineEdit(self.Frequency)
@@ -147,8 +147,8 @@ class Ui_Add_Pest_Control(object):
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.Label_3 = QtWidgets.QLabel(self.Grace_Period)
         self.Label_3.setStyleSheet("QLabel{\n"
-"    margin-right: 5px\n"
-"}")
+                                   "    margin-right: 5px\n"
+                                   "}")
         self.Label_3.setObjectName("Label_3")
         self.horizontalLayout_6.addWidget(self.Label_3)
         self.lineEdit_5 = QtWidgets.QLineEdit(self.Grace_Period)
@@ -165,8 +165,8 @@ class Ui_Add_Pest_Control(object):
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.Label_2 = QtWidgets.QLabel(self.Value)
         self.Label_2.setStyleSheet("QLabel{\n"
-"    margin-right: 133px\n"
-"}")
+                                   "    margin-right: 133px\n"
+                                   "}")
         self.Label_2.setObjectName("Label_2")
         self.horizontalLayout_5.addWidget(self.Label_2)
         self.lineEdit_4 = QtWidgets.QLineEdit(self.Value)
@@ -193,13 +193,18 @@ class Ui_Add_Pest_Control(object):
         self.verticalLayout.addItem(spacerItem8)
         Add_Pest_Control.setCentralWidget(self.Background)
 
+        Add_Product.hide()
+
         self.retranslateUi(Add_Pest_Control)
         QtCore.QMetaObject.connectSlotsByName(Add_Pest_Control)
 
     def retranslateUi(self, Add_Pest_Control):
         _translate = QtCore.QCoreApplication.translate
         Add_Pest_Control.setWindowTitle(_translate("Add_Pest_Control", "Agregar Control de Plagas"))
-        self.Introduction.setText(_translate("Add_Pest_Control", "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese los datos del nuevo control de plagas</span></p></body></html>"))
+        self.Introduction.setText(_translate("Add_Pest_Control",
+                                             "<html><head/><body><p align=\"center\"><span style=\" "
+                                             "font-size:15pt;\">Ingrese los datos del nuevo control de "
+                                             "plagas</span></p></body></html>"))
         self.Label.setText(_translate("Add_Pest_Control", "Nombre"))
         self.Label_5.setText(_translate("Add_Pest_Control", "ICA"))
         self.Label_4.setText(_translate("Add_Pest_Control", "Frecuencia"))
@@ -211,6 +216,7 @@ class Ui_Add_Pest_Control(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Add_Pest_Control = QtWidgets.QMainWindow()
     ui = Ui_Add_Pest_Control()
