@@ -201,7 +201,7 @@ class Ui_Add_Fertilizer(object):
         self.horizontalLayout_3.addWidget(self.Cancel)
         spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem7)
-        self.Add = QtWidgets.QPushButton(self.frame)
+        self.Add = QtWidgets.QPushButton(self.frame, clicked=lambda: self.return_main_menu_window(Add_Fertilizer, Add_Product, Main_Menu))
         self.Add.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Add.setObjectName("Add")
         self.horizontalLayout_3.addWidget(self.Add)
@@ -229,6 +229,11 @@ class Ui_Add_Fertilizer(object):
         self.Label_2.setText(_translate("Add_Fertilizer", "Costo"))
         self.Cancel.setText(_translate("Add_Fertilizer", "Cancelar"))
         self.Add.setText(_translate("Add_Fertilizer", "Agregar"))
+
+    def return_main_menu_window(self, Add_Fertilizer, Add_Product, Main_Menu):
+        Main_Menu.show()
+        Add_Product.close()
+        Add_Fertilizer.close()
 
 
 if __name__ == "__main__":

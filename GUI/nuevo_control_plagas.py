@@ -189,7 +189,7 @@ class Ui_Add_Pest_Control(object):
         self.horizontalLayout_3.addWidget(self.Cancel)
         spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem7)
-        self.Add = QtWidgets.QPushButton(self.frame)
+        self.Add = QtWidgets.QPushButton(self.frame, clicked=lambda: self.return_main_menu_window(Add_Pest_Control, Add_Product, Main_Menu))
         self.Add.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Add.setObjectName("Add")
         self.horizontalLayout_3.addWidget(self.Add)
@@ -207,7 +207,9 @@ class Ui_Add_Pest_Control(object):
         _translate = QtCore.QCoreApplication.translate
         Add_Pest_Control.setWindowTitle(_translate("Add_Pest_Control", "Agregar Control de Plagas"))
         self.Introduction.setText(_translate("Add_Pest_Control",
-                                             "<html><head/><body><p align=\"center\"><span style=\" font-size:15pt;\">Ingrese los datos del nuevo control de plagas</span></p></body></html>"))
+                                             "<html><head/><body><p align=\"center\"><span style=\" "
+                                             "font-size:15pt;\">Ingrese los datos del nuevo control de "
+                                             "plagas</span></p></body></html>"))
         self.Label.setText(_translate("Add_Pest_Control", "Nombre"))
         self.Label_5.setText(_translate("Add_Pest_Control", "ICA"))
         self.Label_4.setText(_translate("Add_Pest_Control", "Frecuencia"))
@@ -215,6 +217,11 @@ class Ui_Add_Pest_Control(object):
         self.Label_2.setText(_translate("Add_Pest_Control", "Costo"))
         self.Cancel.setText(_translate("Add_Pest_Control", "Cancelar"))
         self.Add.setText(_translate("Add_Pest_Control", "Agregar"))
+
+    def return_main_menu_window(self, Add_Pest_Control, Add_Product, Main_Menu):
+        Main_Menu.show()
+        Add_Product.close()
+        Add_Pest_Control.close()
 
 
 if __name__ == "__main__":
