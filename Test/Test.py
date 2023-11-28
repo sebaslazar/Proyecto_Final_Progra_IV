@@ -1,5 +1,6 @@
 import unittest
 from GUI import utils
+from datetime import datetime
 from Controller import antibiotic_controller, bill_controler, client_controler, fertilizer_controller, pest_controller
 from Model import Antibioticos, ControlFertilizantes, ControlPlagas, Cliente, Factura
 
@@ -25,14 +26,25 @@ class Test_Program(unittest.TestCase):
         self.client_2 = client_controler.ClientControler.create(name="Juan Esteban Cardona", dni="70302593")
         self.bill_1 = bill_controler.BillControler.create()
         self.bill_2 = bill_controler.BillControler.create()
-
-    def test_check_in(self):
         bill_controler.BillControler.append_product(bill=self.bill_1, products=[self.antibiotic_1, self.fertilizer_1,
                                                                                 self.pest_control_1])
         bill_controler.BillControler.append_product(bill=self.bill_2, products=[self.antibiotic_2, self.fertilizer_2,
                                                                                 self.pest_control_2])
         client_controler.ClientControler.append_bill(bill=self.bill_1, client=self.client_1)
         client_controler.ClientControler.append_bill(bill=self.bill_2, client=self.client_2)
+
+    def test_search(self):
+        self.assertIsInstance(bill_controler.BillControler.search(date=self.bill_1.date,
+                                                                  bills=self.client_1.bills), Factura.Factura)
+        self.assertIsInstance(bill_controler.BillControler.search(date=self.bill_2.date,
+                                                                  bills=self.client_2.bills), Factura.Factura)
+        self.assertFalse(bill_controler.BillControler.search(date="1/1/2018",
+                                                             bills=self.client_1.bills), Factura.Factura)
+        self.assertFalse(bill_controler.BillControler.search(date="3/10/2010",
+                                                             bills=self.client_2.bills), Factura.Factura)
+        self.assertIsInstance(client_controler.ClientControler.search(dni="1091272102"), Cliente.Cliente)
+        self.assertIsInstance(client_controler.ClientControler.search(dni="70302593"), Cliente.Cliente)
+        self.assertFalse(client_controler.ClientControler.search(dni="9999999999"), Cliente.Cliente)
 
     def test_instances(self):
         self.assertIsInstance(self.antibiotic_1, Antibioticos.Antibioticos)
