@@ -158,13 +158,13 @@ class Ui_Add_Client(object):
                                             "align=\"center\"><span style=\" font-size:15pt;\">(Cédula sin puntos, "
                                             "comas ni guiones)</span></p>"
                                             "<p align=\"center\"><span style=\" font-size:10pt;\">Si el cliente se encuentra registrado\n"
-                                            "solo ingrese la cedula</span></p></body></html>"))
+                                            "sólo ingrese la cédula</span></p></body></html>"))
         
     def validate_client(self):
         name = self.lineEdit_2.text()
         dni = self.lineEdit.text().strip()  
         if not validate_items(dni):
-            show_pop_up("Administracion Tienda Agricola", "Error al buscar cliente. Debe completar al menos la cedula",
+            show_pop_up("Administración Tienda Agrícola", "Error al buscar cliente. Debe completar al menos la cedula",
                         QtWidgets.QMessageBox.Warning)
         elif not validate_dni(dni):
             show_pop_up("Administración Tienda Agrícola", "Número de cédula inválido.",
@@ -174,7 +174,7 @@ class Ui_Add_Client(object):
             client = ClientControler.search(name=name, dni=dni)
             if not client:
                 if not validate_items(name):
-                    show_pop_up("Administracion Tienda Agricola", "Error al buscar cliente. Debe completar todos los campos",
+                    show_pop_up("Administración Tienda Agrícola", "Error al buscar cliente. Debe completar todos los campos",
                         QtWidgets.QMessageBox.Warning)
                 elif not validate_name(name):
                     show_pop_up("Administración Tienda Agrícola", "Nombre inválido.", QtWidgets.QMessageBox.Warning)

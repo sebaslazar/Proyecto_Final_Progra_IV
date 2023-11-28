@@ -223,7 +223,7 @@ class Ui_Add_Antibiotic(object):
                 antibiotic_controller.AntibioticController.create(**variables)
                 return True
             except ValueError:
-                show_pop_up("Error", "El costo debe ser numerico",
+                show_pop_up("Error", "El costo debe ser numérico",
                             QtWidgets.QMessageBox.Warning)
         else:
             show_pop_up("Error", "Debe ingresar todos los valores",
@@ -234,7 +234,7 @@ class Ui_Add_Antibiotic(object):
     def return_main_menu_window(self, Add_Antibiotic, Add_Product, Main_Menu):
         if not self.create_object():
             return
-        show_message("Se ha guardado el nuevo producto con exito")
+        show_message("Se ha guardado el nuevo producto con éxito")
         Main_Menu.show()
         Add_Product.close()
         Add_Antibiotic.close()
